@@ -1,17 +1,9 @@
-// ====================================================================================================
-//
-// Cloud Code for ChallengeStartedMessage, write your code here to customise the GameSparks platform.
-//
-// For details of the GameSparks Cloud Code API see https://portal.gamesparks.net/docs.htm			
-//
-// ====================================================================================================
-
 //This function creates and array of cards, and populates it with 'numberOfDecks" worth of decks. 
 //This is not used externally but is extracted into it's own function for readability
 function makeStackOfDecks(numberOfDecks) {
 
   var ranks = new Array("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
-  var suits = new Array("C", "D", "H", "S");
+  var suits = new Array("c", "d", "h", "s");
   var i, j, k;
   var m;
 
@@ -25,7 +17,7 @@ function makeStackOfDecks(numberOfDecks) {
     for (j = 0; j < suits.length; j++){
       for (k = 0; k < ranks.length; k++){
         deck[i * m + j * ranks.length + k] = new Card(ranks[k], suits[j]);
-       }
+      }
     }
   }
   return deck;
