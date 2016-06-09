@@ -31,10 +31,6 @@ if (Spark.getPlayer().getPlayerId() === challengerId) {
     
 
     // first player needs to draw cards
-    //require("dealer");
-    
-    // TODO: deal the first 5 cards to player starting
-    
     var deck = makeShuffledStackOfDecks(1);
     chal.setPrivateData("deck", deck);
     var drawn = [];
