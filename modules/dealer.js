@@ -48,3 +48,25 @@ function Card(rank, suit) {
   this.rank = rank;
   this.suit = suit;
 }
+
+function stackDeal(deck) {
+
+  if (deck.length > 0)
+    return deck.shift();
+  else
+    return null;
+}
+
+function stackDraw(deck, n) {
+
+  var card;
+
+  if (n >= 0 && n < deck.length) {
+    card = deck[n];
+    deck.splice(n, 1);
+  }
+  else
+    card = null;
+
+  return card;
+}

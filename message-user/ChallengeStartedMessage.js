@@ -13,8 +13,10 @@ var chal = Spark.getChallenge(Spark.getData().challenge.challengeId);
 var challengerId = chal.getChallengerId();
 var challengedId = chal.getChallengedPlayerIds()[0];
 
+require("dealer");
+
 //Initiation of the challenge settings through the challenger(similar to host)
-if(Spark.getPlayer().getPlayerId() === challengerId) {
+if (Spark.getPlayer().getPlayerId() === challengerId) {
 
     //Construct the play field JSON - Used for the playing field
     var playField = {};
@@ -36,20 +38,19 @@ if(Spark.getPlayer().getPlayerId() === challengerId) {
     
     // TODO: deal the first 5 cards to player starting
     
-
-/*
+    var deck = makeShuffledStackOfDecks(1);
+    chal.setPrivateData("deck", deck);
+    var drawn = [];
+    
     //Pull three cards for each player
-    for(var i = 0; i < 3; i++){
-        //First Id
-        var pId = challengerId;
-        require("pullCardModule");
-        //second Id
-        var pId = challengedId;
-        require("pullCardModule");
+    for(var i = 0; i < 5; i++){
+        drawn.push(stackDeal(deck));
     }
-*/
+    
+    currentHand[challengedId] = drawn;
 
     //Save the contructed JSONs against the challenge's scriptData
+    //chal.setScriptData("deck", deck);
     chal.setScriptData("playField", playField);
     chal.setScriptData("currentHand", currentHand);
     chal.setScriptData("playerStats", playerStats)

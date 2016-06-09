@@ -24,4 +24,4 @@ for(i=0 ; i<accepted.length ; i++){
 }
 
 //Store the initialised hands array against the challenge
-challenge.setScriptData("hands", hands);
+challenge.setScriptData("visible_hands", hands);
