@@ -63,8 +63,8 @@ var challengedId = challenge.getChallengedPlayerIds()[0];
 	//playerStats[challengerId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
 	//playerStats[challengedId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
 
-	// TODO: randomize this
-	var gameState = {"turn": challengerId};
+	// handled by gamesparks for turn start
+	var gameState = {};// "turn": challengerId};
 
 	//Save the contructed JSONs against the challenge's scriptData
 	//chal.setScriptData("deck", deck);
