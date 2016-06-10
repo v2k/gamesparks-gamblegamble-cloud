@@ -13,18 +13,28 @@ require("dealer");
 var chal = Spark.getChallenge(Spark.getData().challengeInstanceId);
 
 //Retrieve player stats
-var playerStats = chal.getScriptData("playerStats");
 //Retrieve player Id
 var pId = Spark.getPlayer().getPlayerId();
 
 if (playerStats[pId].hasPulled === false){
 
+	var deck = chal.getPrivateData("deck");
+	var playerStats = chal.getScriptData("playerStats");
     //Retrieve current hands
     var currentHand = chal.getScriptData("currentHand");
 
     //Run the sequence to pull a new card
     require("dealer");
     
+	// first player needs to draw cards
+	var drawn = [];
+
+	//Pull three cards for each player
+	for (var i = 0; i < 5; i++) {
+		drawn.push(stackDeal(deck));
+	}
+
+	currentHand[pId] = drawn;
     //drawCard(pId);
 
     //Player can't pull another card this round
@@ -33,6 +43,8 @@ if (playerStats[pId].hasPulled === false){
     //Save current hand and player stats
     chal.setScriptData("currentHand", currentHand);
     chal.setScriptData("playerStats", playerStats);
+
+	chal.setPrivateData("deck", deck);
 } else {
     Spark.setScriptError("Error", "Already pulled card this round");
 }

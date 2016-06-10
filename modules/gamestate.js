@@ -35,14 +35,14 @@ function OnRoundStart(challenge)
 	var players = challenge.getAcceptedPlayerIds();
 
 	// who's turn is it?
-	var playerToActId = challenge.nextPlayer;
+	//var playerToActId = challenge.nextPlayer;
 
 	//Create an empty hand object for each player and add it to the hands array
 	for (i = 0; i < players.length; i++) {
 		gameBoards[players[i]] = {id:players[i], board:[]};
 		currentHand[players[i]] = {};
 	}
-
+/*
 	// first player needs to draw cards
 	var drawn = [];
 
@@ -52,6 +52,7 @@ function OnRoundStart(challenge)
 	}
 
 	currentHand[playerToActId] = drawn;
+	*/
 	//Store the initialised hands array against the challenge
 	//challenge.setScriptData("visible_hands", hands);
 	//Retrieve player stats
