@@ -13,13 +13,13 @@ require("dealer");
 var chal = Spark.getChallenge(Spark.getData().challengeInstanceId);
 
 //Retrieve player stats
+var playerStats = chal.getScriptData("playerStats");
 //Retrieve player Id
 var pId = Spark.getPlayer().getPlayerId();
 
 if (playerStats[pId].hasPulled === false){
 
 	var deck = chal.getPrivateData("deck");
-	var playerStats = chal.getScriptData("playerStats");
     //Retrieve current hands
     var currentHand = chal.getScriptData("currentHand");
 
