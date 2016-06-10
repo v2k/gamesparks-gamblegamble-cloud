@@ -34,7 +34,8 @@ function OnRoundStart(challenge)
 	//Gets the list of player ID's who have accepted the challenge
 	var players = challenge.getAcceptedPlayerIds();
 
-	var playerToActId = gameState["turn"];
+	// who's turn is it?
+	var playerToActId = challenge.nextPlayer;
 
 	//Create an empty hand object for each player and add it to the hands array
 	for (i = 0; i < players.length; i++) {
