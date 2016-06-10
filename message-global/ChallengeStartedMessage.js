@@ -30,11 +30,11 @@
 //challenge.setScriptData("playerStats", hands);
 
 //Declare challenge
-var chal = Spark.getChallenge(Spark.getData().challenge.challengeId);
+var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
 
 //Player IDs
-var challengerId = chal.getChallengerId();
-var challengedId = chal.getChallengedPlayerIds()[0];
+var challengerId = challenge.getChallengerId();
+var challengedId = challenge.getChallengedPlayerIds()[0];
 
 //Initiation of the challenge settings through the challenger(similar to host)
 //both players get this, so only trigger on the host?
@@ -70,10 +70,10 @@ var challengedId = chal.getChallengedPlayerIds()[0];
 	//chal.setScriptData("deck", deck);
 	//chal.setScriptData("board", board);
 	//chal.setScriptData("currentHand", currentHand);
-	chal.setScriptData("playerStats", playerStats);
-	chal.setScriptData("gameState", gameState);
+	challenge.setScriptData("playerStats", playerStats);
+	challenge.setScriptData("gameState", gameState);
 
-	Spark.logEvent("on_round_started", {"id":chal.getId});
+	Spark.logEvent("on_round_started", {"id":challenge.getId});
 
 	//var eventAttr1 = Spark.getData().CC_ATTR
 	//var eventAttr2 = Spark.getData().CC_ATTR_2
