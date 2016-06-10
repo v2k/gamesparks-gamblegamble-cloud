@@ -38,8 +38,8 @@ function OnRoundStart(challenge)
 
 	//Create an empty hand object for each player and add it to the hands array
 	for (i = 0; i < players.length; i++) {
-		gameBoards[i] = {id:players[i], board:[]};
-		currentHand[i] = {};
+		gameBoards[players[i]] = {id:players[i], board:[]};
+		currentHand[players[i]] = {};
 	}
 
 	// first player needs to draw cards
@@ -69,7 +69,7 @@ function OnRoundStart(challenge)
 	chal.setScriptData("gameBoards", gameBoards);
 	//chal.setScriptData("lastMove", lastMove);
 
-	chal.setPrivateData("deck", makeShuffledStackOfDecks(1));
+	chal.setPrivateData("deck", deck);
 
 	/*
 	   if (playerStats[pId].hasPulled === false){
