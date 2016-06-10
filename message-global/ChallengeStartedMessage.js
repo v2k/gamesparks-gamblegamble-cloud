@@ -38,7 +38,7 @@ var challengedId = chal.getChallengedPlayerIds()[0];
 
 //Initiation of the challenge settings through the challenger(similar to host)
 //both players get this, so only trigger on the host?
-if (Spark.getPlayer().getPlayerId() === challengerId) {
+//if (Spark.getPlayer().getPlayerId() === challengerId) {
 	require("dealer");
 
 	var playerStats = {};
@@ -83,4 +83,4 @@ if (Spark.getPlayer().getPlayerId() === challengerId) {
 	//eventAttr3.won = true
 	//Spark.setScriptData("eventAttr3", eventAttr3);
 
-}
+//}
