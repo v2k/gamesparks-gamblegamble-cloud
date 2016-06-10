@@ -73,7 +73,9 @@ var challengedId = challenge.getChallengedPlayerIds()[0];
 	challenge.setScriptData("playerStats", playerStats);
 	challenge.setScriptData("gameState", gameState);
 
-	Spark.logEvent("on_round_started", {"id":challenge.getId});
+	require("gamestate");
+	OnRoundStart(challenge);
+	//Spark.logEvent("OnRoundStart", {"id":challenge.getId});
 
 	//var eventAttr1 = Spark.getData().CC_ATTR
 	//var eventAttr2 = Spark.getData().CC_ATTR_2
