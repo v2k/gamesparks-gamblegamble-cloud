@@ -45,6 +45,7 @@ if (playerStats[pId].hasPulled === false){
     chal.setScriptData("playerStats", playerStats);
 
 	chal.setPrivateData("deck", deck);
+	Spark.setScriptData("cards", drawn);
 } else {
     Spark.setScriptError("Error", "Already pulled card this round");
 }
