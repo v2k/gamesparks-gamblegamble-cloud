@@ -17,7 +17,7 @@ function OnRoundStart(challenge)
 
 	//Gets the current challenge so we can populate it with cards and hands
 	//This uses the GameSparks "Spark" API (Documented in the portal)
-	var chal = Spark.getChallenge(Spark.getData().challengeInstanceId);
+	var chal = challenge;//Spark.getChallenge(Spark.getData().challengeInstanceId);
 
 	var gameState = chal.getScriptData("gameState");
 
