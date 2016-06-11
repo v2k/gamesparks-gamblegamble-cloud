@@ -17,16 +17,20 @@ var playerStats = chal.getScriptData("playerStats");
 //Retrieve player Id
 var pId = Spark.getPlayer().getPlayerId();
 
-// set top, mid, and bot
+var gameBoards = chal.getScriptData("gameBoards");
+// grab the cards that the user set
+var hand = Spark.data.hand;
+
+// set top, mid, and bot to board
 chal.setScriptData("top", currentHand);
 chal.setScriptData("mid", "Ac");
 chal.setScriptData("bot", currentHand);
 
-var currentBoard = {"top" : "Ac" }
-var lastSet = { "top" : "Ac" }
+//var currentBoard = {"top" : "Ac" }
+//var lastSet = { "top" : "Ac" }
 
-chal.setScriptData("currentBoard", currentBoard);
-chal.setScriptData("lastMove", lastMove);
+//chal.setScriptData("currentBoard", currentBoard);
+chal.setScriptData("lastMove", hand);
     
 /*
 if (playerStats[pId].hasPulled === false){
