@@ -27,10 +27,11 @@ if (playerStats[pId].hasPulled === false){
     require("dealer");
     
 	// first player needs to draw cards
+	var num = Spark.data.num;
 	var drawn = [];
 
 	//Pull three cards for each player
-	for (var i = 0; i < 5; i++) {
+	for (var i = 0; i < num; i++) {
 		drawn.push(stackDeal(deck));
 	}
 
