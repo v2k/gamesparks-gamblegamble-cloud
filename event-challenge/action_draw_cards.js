@@ -17,6 +17,8 @@ var playerStats = chal.getScriptData("playerStats");
 //Retrieve player Id
 var pId = Spark.getPlayer().getPlayerId();
 
+var currentHand = chal.getScriptData("currentHand");
+
 if (playerStats[pId].hasPulled === false){
 
 	var deck = chal.getPrivateData("deck");
@@ -48,5 +50,6 @@ if (playerStats[pId].hasPulled === false){
 	chal.setPrivateData("deck", deck);
 	Spark.setScriptData("cards", drawn);
 } else {
+	Spark.setScriptData("cards", currentHand[pId]);
     Spark.setScriptError("Error", "Already pulled card this round");
 }
