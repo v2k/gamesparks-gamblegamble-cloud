@@ -44,19 +44,21 @@ var challengedId = challenge.getChallengedPlayerIds()[0];
 	var playerStats = {};
 	var players = challenge.getAcceptedPlayerIds();
 	for (i = 0; i < players.length; i++) {
-		playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
+		playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "in_fantasyland": false, "hasPulled": false }
+		//"board" : {} }
 	}
 
 	//Construct the play field JSON - Used for the playing field
-	var board = {};
-	board[challengerId] = {};
-	board[challengedId] = {};
+	//var board = {};
+	//board[challengerId] = {};
+	//board[challengedId] = {};
 
 	//Construct the current hand JSON - Used for the cards in the player's hands
-	var currentHand = {};
-	currentHand[challengerId] = {};
-	currentHand[challengedId] = {};
+	//var currentHand = {};
+	//currentHand[challengerId] = {};
+	//currentHand[challengedId] = {};
 
+	//var playersData = {};
 	//currentHand[challengedId] = drawn;
 
 	//Construct player details
@@ -64,7 +66,7 @@ var challengedId = challenge.getChallengedPlayerIds()[0];
 	//playerStats[challengedId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
 
 	// handled by gamesparks for turn start
-	var gameState = {};// "turn": challengerId};
+	var gameState = { "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
 
 	//Save the contructed JSONs against the challenge's scriptData
 	//chal.setScriptData("deck", deck);

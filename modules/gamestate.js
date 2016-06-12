@@ -27,8 +27,8 @@ function OnRoundStart(challenge)
 
 	//Create an empty array to hold the hand state
 	var deck = makeShuffledStackOfDecks(1);
-	var gameBoards = [];
-	var board = [];   
+	var gameBoards = {};
+	//var board = [];   
 	var currentHand = {};
 
 	//Gets the list of player ID's who have accepted the challenge
@@ -39,7 +39,7 @@ function OnRoundStart(challenge)
 
 	//Create an empty hand object for each player and add it to the hands array
 	for (i = 0; i < players.length; i++) {
-		gameBoards[players[i]] = {id:players[i], board:[]};
+		gameBoards[players[i]] = {};
 		currentHand[players[i]] = {};
 	}
 /*
