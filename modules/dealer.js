@@ -16,7 +16,8 @@ function makeStackOfDecks(numberOfDecks) {
 	for (i = 0; i < numberOfDecks; i++) {
 		for (j = 0; j < suits.length; j++) {
 			for (k = 0; k < ranks.length; k++) {
-				deck[i * m + j * ranks.length + k] = new Card(ranks[k], suits[j]);
+				deck[i * m + j * ranks.length + k] = ranks[k] + suits[j];
+				// new Card(ranks[k], suits[j]);
 			}
 		}
 	}

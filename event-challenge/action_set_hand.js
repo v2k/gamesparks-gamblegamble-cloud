@@ -12,26 +12,35 @@ require("dealer");
 //Load challenge
 var chal = Spark.getChallenge(Spark.getData().challengeInstanceId);
 
-//Retrieve player stats
-var playerStats = chal.getScriptData("playerStats");
 //Retrieve player Id
 var pId = Spark.getPlayer().getPlayerId();
+//Retrieve player stats
+var playerStats = chal.getScriptData("playerStats");
+playerStats[pId].hasPulled = false;
 
 var gameBoards = chal.getScriptData("gameBoards");
+
 // grab the cards that the user set
 var hand = Spark.data.hand;
 
+// set this player's board to the hand sent by client
+gameBoards[pId].top.push(hand.top);
+gameBoards[pId].mid.push(hand.mid);
+gameBoards[pId].bot.push(hand.bot);
+
+//var num = Spark.data.num;
 // set top, mid, and bot to board
-chal.setScriptData("top", currentHand);
-chal.setScriptData("mid", "Ac");
-chal.setScriptData("bot", currentHand);
+//chal.setScriptData("top", currentHand);
+//chal.setScriptData("mid", "Ac");
+//chal.setScriptData("bot", currentHand);
 
 //var currentBoard = {"top" : "Ac" }
 //var lastSet = { "top" : "Ac" }
 
 //chal.setScriptData("currentBoard", currentBoard);
 chal.setScriptData("lastMove", hand);
-    
+chal.setScriptData("gameBoards", gameBoards);
+chal.setScriptData("playerStats", playerStats);
 /*
 if (playerStats[pId].hasPulled === false){
 
