@@ -16,53 +16,68 @@ var chal = Spark.getChallenge(Spark.getData().challengeInstanceId);
 var pId = Spark.getPlayer().getPlayerId();
 //Retrieve player stats
 var playerStats = chal.getScriptData("playerStats");
-playerStats[pId].hasPulled = false;
 
-var gameBoards = chal.getScriptData("gameBoards");
+if (playerStats[pId].hasPulled)
+{
+    playerStats[pId].hasPulled = false;
 
-// grab the cards that the user set
-var hand = Spark.data.hand;
+    var gameBoards = chal.getScriptData("gameBoards");
 
-// set this player's board to the hand sent by client
-gameBoards[pId].top.push(hand.top);
-gameBoards[pId].mid.push(hand.mid);
-gameBoards[pId].bot.push(hand.bot);
+    // grab the cards that the user set
+    var hand = Spark.data.hand;
 
-//var num = Spark.data.num;
-// set top, mid, and bot to board
-//chal.setScriptData("top", currentHand);
-//chal.setScriptData("mid", "Ac");
-//chal.setScriptData("bot", currentHand);
+    // create arrays if they are not already set
+    if (!gameBoards[pId].top)
+        gameBoards[pId].top = [];
+    if (!gameBoards[pId].mid)
+        gameBoards[pId].mid = [];
+    if (!gameBoards[pId].bot)
+        gameBoards[pId].bot = [];
 
-//var currentBoard = {"top" : "Ac" }
-//var lastSet = { "top" : "Ac" }
+    // set this player's board to the hand sent by client
+    gameBoards[pId].top.push(hand.top);
+    gameBoards[pId].mid.push(hand.mid);
+    gameBoards[pId].bot.push(hand.bot);
 
-//chal.setScriptData("currentBoard", currentBoard);
-chal.setScriptData("lastMove", hand);
-chal.setScriptData("gameBoards", gameBoards);
-chal.setScriptData("playerStats", playerStats);
-/*
-if (playerStats[pId].hasPulled === false){
+    //var num = Spark.data.num;
+    // set top, mid, and bot to board
+    //chal.setScriptData("top", currentHand);
+    //chal.setScriptData("mid", "Ac");
+    //chal.setScriptData("bot", currentHand);
 
-    //Retrieve current hands
-    var currentHand = chal.getScriptData("currentHand");
+    //var currentBoard = {"top" : "Ac" }
+    //var lastSet = { "top" : "Ac" }
 
-    //Run the sequence to pull a new card
-    require("dealer");
-    
-    //drawCard(pId);
-
-    //Player can't pull another card this round
-    playerStats[pId].hasPulled = true;
-
-    //Save current hand and player stats
-    chal.setScriptData("currentHand", currentHand);
+    //chal.setScriptData("currentBoard", currentBoard);
+    chal.setScriptData("lastMove", hand);
+    chal.setScriptData("gameBoards", gameBoards);
     chal.setScriptData("playerStats", playerStats);
-} else {
-    Spark.setScriptError("Error", "Already pulled card this round");
+    /*
+    if (playerStats[pId].hasPulled === false){
+
+        //Retrieve current hands
+        var currentHand = chal.getScriptData("currentHand");
+
+        //Run the sequence to pull a new card
+        require("dealer");
+        
+        //drawCard(pId);
+
+        //Player can't pull another card this round
+        playerStats[pId].hasPulled = true;
+
+        //Save current hand and player stats
+        chal.setScriptData("currentHand", currentHand);
+        chal.setScriptData("playerStats", playerStats);
+    } else {
+        Spark.setScriptError("Error", "Already pulled card this round");
+    }
+    */
+
+
+    // TODO: might not be right to pass the turn.
+
+    Spark.setScriptData("stillTurn", false);
+    //Finish player turn
+    chal.consumeTurn(pId);
 }
-*/
-
-
-//Finish player turn
-chal.consumeTurn(pId);
