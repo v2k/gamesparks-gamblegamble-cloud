@@ -20,6 +20,7 @@ var playerStats = chal.getScriptData("playerStats");
 if (playerStats[pId].hasPulled)
 {
     playerStats[pId].hasPulled = false;
+    playerStats[pId].cardsPulled = 0;
 
     var gameBoards = chal.getScriptData("gameBoards");
 
@@ -35,9 +36,9 @@ if (playerStats[pId].hasPulled)
         gameBoards[pId].bot = [];
 
     // set this player's board to the hand sent by client
-    gameBoards[pId].top.push(hand.top);
-    gameBoards[pId].mid.push(hand.mid);
-    gameBoards[pId].bot.push(hand.bot);
+    gameBoards[pId].top = gameBoards[pId].top.concat(hand.top);
+    gameBoards[pId].mid = gameBoards[pId].mid.concat(hand.mid);
+    gameBoards[pId].bot = gameBoards[pId].bot.concat(hand.bot);
 
     //var num = Spark.data.num;
     // set top, mid, and bot to board

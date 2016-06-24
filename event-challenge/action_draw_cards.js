@@ -42,6 +42,7 @@ if (playerStats[pId].hasPulled === false){
 
     //Player can't pull another card this round
     playerStats[pId].hasPulled = true;
+    playerStats[pId].cardsPulled = num;
 
     //Save current hand and player stats
     chal.setScriptData("currentHand", currentHand);
