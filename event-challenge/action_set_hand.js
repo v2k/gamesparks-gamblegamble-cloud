@@ -78,7 +78,7 @@ if (playerStats[pId].hasPulled)
 
     // TODO: might not be right to pass the turn.
 
-    Spark.setScriptData("stillTurn", false);
+    chal.setScriptData("stillTurn", false);
     //Finish player turn
     chal.consumeTurn(pId);
 }
