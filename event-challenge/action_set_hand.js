@@ -34,7 +34,11 @@ if (playerStats[pId].hasPulled)
         gameBoards[pId].mid = [];
     if (!gameBoards[pId].bot)
         gameBoards[pId].bot = [];
-
+    
+    chal.setScriptData("test1", Spark.data.hand_req);
+    chal.setScriptData("testtop", Spark.data.top);
+    chal.setScriptData("testmid", Spark.data.mid);
+    chal.setScriptData("testbot", Spark.data.bot);
     // set this player's board to the hand sent by client
     gameBoards[pId].top = gameBoards[pId].top.concat(hand.top);
     gameBoards[pId].mid = gameBoards[pId].mid.concat(hand.mid);
