@@ -65,9 +65,16 @@ if (playerStats[pId].hasPulled)
 
     // TODO: might not be right to pass the turn.
 	// check the board, see if there are more moves to play; others might be in fantasy land too
+	var finalMove = IsFinalMove(chal);
 
-    chal.setScriptData("stillTurn", false);
-    chal.setScriptData("isFinalMove", IsFinalMove(chal));
-    //Finish player turn
-    chal.consumeTurn(pId);
+	// if it's the final move, let's do scoring 
+	// then pass turn
+	if (finalMove) {
+		chal.setScriptData("stillTurn", true);
+	} else {
+		chal.setScriptData("stillTurn", false);
+		chal.setScriptData("isFinalMove", finalMove);
+		//Finish player turn
+		chal.consumeTurn(pId);
+	}
 }

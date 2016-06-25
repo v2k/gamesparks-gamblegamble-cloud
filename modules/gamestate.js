@@ -102,6 +102,7 @@ function CheckNextTurn(challenge)
 {
 }
 
+// check if round is over
 function IsFinalMove(challenge)
 {
 	var players = challenge.getAcceptedPlayerIds();
