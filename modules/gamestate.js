@@ -5,15 +5,12 @@
 // For details of the GameSparks Cloud Code API see https://portal.gamesparks.net/docs.htm			
 //
 // ====================================================================================================
-
 function OnRoundStart(challenge)
 {
-
 	gs_load("dealer");
 
 	// clear board
 	// set next player to start
-
 
 	//Gets the current challenge so we can populate it with cards and hands
 	//This uses the GameSparks "Spark" API (Documented in the portal)
@@ -42,7 +39,7 @@ function OnRoundStart(challenge)
 		gameBoards[players[i]] = {};
 		currentHand[players[i]] = {};
 	}
-/*
+	/*
 	// first player needs to draw cards
 	var drawn = [];
 
@@ -50,7 +47,6 @@ function OnRoundStart(challenge)
 	for (var i = 0; i < 5; i++) {
 		drawn.push(stackDeal(deck));
 	}
-
 	currentHand[playerToActId] = drawn;
 	*/
 	//Store the initialised hands array against the challenge
@@ -98,4 +94,26 @@ function OnRoundStart(challenge)
 
 	//Finish player turn
 	//chal.consumeTurn(pId);
+}
+
+// figure out who's turn it is next, based on the
+// board and game state
+function CheckNextTurn(challenge)
+{
+}
+
+function IsFinalMove(challenge)
+{
+	var players = challenge.getAcceptedPlayerIds();
+	for (i = 0; i < players.length; i++) {
+		var num = 
+			gameBoards[players[i]].top +
+			gameBoards[players[i]].mid +
+			gameBoards[players[i]].bot;
+		if (num < 13) {
+			return false;
+		}
+	}
+
+	return true;
 }

@@ -5,9 +5,7 @@
 // For details of the GameSparks Cloud Code API see https://portal.gamesparks.net/docs.htm			
 //
 // ====================================================================================================
-
 require("dealer");
-
 
 //Load challenge
 var chal = Spark.getChallenge(Spark.getData().challengeInstanceId);
@@ -65,10 +63,11 @@ if (playerStats[pId].hasPulled)
     }
     */
 
-
     // TODO: might not be right to pass the turn.
+	// check the board, see if there are more moves to play; others might be in fantasy land too
 
     chal.setScriptData("stillTurn", false);
+    chal.setScriptData("isFinalMove", IsFinalMove(chal));
     //Finish player turn
     chal.consumeTurn(pId);
 }

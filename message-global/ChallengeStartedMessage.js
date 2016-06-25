@@ -36,55 +36,40 @@ var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
 var challengerId = challenge.getChallengerId();
 var challengedId = challenge.getChallengedPlayerIds()[0];
 
-//Initiation of the challenge settings through the challenger(similar to host)
-//both players get this, so only trigger on the host?
-//if (Spark.getPlayer().getPlayerId() === challengerId) {
-	require("dealer");
+require("dealer");
 
-	var playerStats = {};
-	var players = challenge.getAcceptedPlayerIds();
-	for (i = 0; i < players.length; i++) {
-		playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "in_fantasyland": false, "hasPulled": false }
-		//"board" : {} }
-	}
+var playerStats = {};
+var players = challenge.getAcceptedPlayerIds();
+for (i = 0; i < players.length; i++) {
+	playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "in_fantasyland": false, "hasPulled": false }
+}
 
-	//Construct the play field JSON - Used for the playing field
-	//var board = {};
-	//board[challengerId] = {};
-	//board[challengedId] = {};
+//Construct the play field JSON - Used for the playing field
+//var board = {};
+//board[challengerId] = {};
+//board[challengedId] = {};
 
-	//Construct the current hand JSON - Used for the cards in the player's hands
-	//var currentHand = {};
-	//currentHand[challengerId] = {};
-	//currentHand[challengedId] = {};
+//Construct the current hand JSON - Used for the cards in the player's hands
+//var currentHand = {};
+//currentHand[challengerId] = {};
+//currentHand[challengedId] = {};
 
-	//var playersData = {};
-	//currentHand[challengedId] = drawn;
+//var playersData = {};
+//currentHand[challengedId] = drawn;
 
-	//Construct player details
-	//playerStats[challengerId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
-	//playerStats[challengedId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
+//Construct player details
+//playerStats[challengerId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
+//playerStats[challengedId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
 
-	// handled by gamesparks for turn start
-	var gameState = { "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
+// handled by gamesparks for turn start
+var gameState = { "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
 
-	//Save the contructed JSONs against the challenge's scriptData
-	//chal.setScriptData("deck", deck);
-	//chal.setScriptData("board", board);
-	//chal.setScriptData("currentHand", currentHand);
-	challenge.setScriptData("playerStats", playerStats);
-	challenge.setScriptData("gameState", gameState);
+//Save the contructed JSONs against the challenge's scriptData
+//chal.setScriptData("deck", deck);
+//chal.setScriptData("board", board);
+//chal.setScriptData("currentHand", currentHand);
+challenge.setScriptData("playerStats", playerStats);
+challenge.setScriptData("gameState", gameState);
 
-	require("gamestate");
-	OnRoundStart(challenge);
-	//Spark.logEvent("OnRoundStart", {"id":challenge.getId});
-
-	//var eventAttr1 = Spark.getData().CC_ATTR
-	//var eventAttr2 = Spark.getData().CC_ATTR_2
-	//var eventAttr3 = Spark.getData().CC_ATTR_3
-	//Spark.setScriptData("eventAttr1", chal.getId);
-	//Spark.setScriptData("eventAttr2", eventAttr2 * 10);
-	//eventAttr3.won = true
-	//Spark.setScriptData("eventAttr3", eventAttr3);
-
-//}
+require("gamestate");
+OnRoundStart(challenge);
