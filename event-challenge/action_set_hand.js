@@ -38,6 +38,15 @@ if (playerStats[pId].hasPulled)
     gameBoards[pId].mid = gameBoards[pId].mid.concat(hand.mid);
     gameBoards[pId].bot = gameBoards[pId].bot.concat(hand.bot);
 
+	// update our stats
+    var num = gameBoards[pId].top.length + gameBoards[pId].mid.length + gameBoards[pId].bot.length;
+    playerStats[pId].cardsPlaced = num;
+	if (num == 13) {
+		playerStats[pId].completed = true;
+	} else {
+		playerStats[pId].completed = false;
+	}
+
     chal.setScriptData("lastMove", hand);
     chal.setScriptData("gameBoards", gameBoards);
     chal.setScriptData("playerStats", playerStats);
