@@ -6,6 +6,7 @@
 //
 // ====================================================================================================
 require("dealer");
+require("gamestate");
 
 //Load challenge
 var chal = Spark.getChallenge(Spark.getData().challengeInstanceId);
