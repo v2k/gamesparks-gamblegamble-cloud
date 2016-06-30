@@ -19,7 +19,7 @@ var pId = Spark.getPlayer().getPlayerId();
 
 var currentHand = chal.getScriptData("currentHand");
 
-if (playerStats[pId].hasPulled === false){
+if (playerStats[pId].hasPulled === false) {
 
 	var deck = chal.getPrivateData("deck");
     //Retrieve current hands

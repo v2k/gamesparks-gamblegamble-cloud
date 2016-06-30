@@ -73,6 +73,13 @@ if (playerStats[pId].hasPulled)
     }
     */
 
+    // if we're the dealer, increment the turn counter
+    var gameState = chal.getScriptData("gameState"); 
+    if (gameState.dealer == pId) {
+        gameState.turn++;
+    }
+
+    chal.setScriptData("gameState", gameState);
     // TODO: might not be right to pass the turn.
 	// check the board, see if there are more moves to play; others might be in fantasy land too
 	var finalMove = IsFinalMove(chal);

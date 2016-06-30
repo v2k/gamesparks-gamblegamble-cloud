@@ -62,7 +62,7 @@ for (i = 0; i < players.length; i++) {
 //playerStats[challengedId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
 
 // handled by gamesparks for turn start
-var gameState = { "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
+var gameState = { "dealer": Spark.getData().nextPlayer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
 
 //Save the contructed JSONs against the challenge's scriptData
 //chal.setScriptData("deck", deck);
