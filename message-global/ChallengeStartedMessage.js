@@ -31,6 +31,8 @@
 
 //Declare challenge
 var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
+var spark = Spark.getData();
+var sparkChal = Spark.getData().challenge;
 
 //Player IDs
 var challengerId = challenge.getChallengerId();
