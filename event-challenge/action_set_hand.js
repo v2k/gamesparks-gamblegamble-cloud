@@ -64,7 +64,7 @@ if (playerStats[pId].hasPulled)
     chal.setScriptData("lastMove", hand);
     chal.setScriptData("gameBoards", gameBoards);
     chal.setScriptData("playerStats", playerStats);
-    
+
     /*
     if (playerStats[pId].hasPulled === false){
 
@@ -100,12 +100,16 @@ if (playerStats[pId].hasPulled)
 
 	// if it's the final move, let's do scoring 
 	// then pass turn
+    var stillTurn = false;
 	if (finalMove) {
-		chal.setScriptData("stillTurn", true);
+        stillTurn = true;
 	} else {
-		chal.setScriptData("stillTurn", false);
 		chal.setScriptData("isFinalMove", finalMove);
 		//Finish player turn
 		chal.consumeTurn(pId);
 	}
+
+    chal.setScriptData("stillTurn", stillTurn);
+    Spark.setScriptData("isFinalMove", finalMove);
+    Spark.setScriptData("stillTurn", stillTurn);
 }
