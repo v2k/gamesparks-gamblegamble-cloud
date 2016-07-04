@@ -40,7 +40,7 @@ function OnRoundStart(challenge)
 		gameBoards[players[i]] = {};
 		currentHand[players[i]] = {};
 		playerStats[players[i]].hasPulled = false;
-		playerStats[players[i]].cardPulled = 0;
+		playerStats[players[i]].cardsPulled = 0;
 	}
 
 

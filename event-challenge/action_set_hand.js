@@ -19,7 +19,7 @@ var playerStats = chal.getScriptData("playerStats");
 if (playerStats[pId].hasPulled)
 {
     playerStats[pId].hasPulled = false;
-    playerStats[pId].cardsPulled = 0;
+    //playerStats[pId].cardsPulled = 0;
 
     var gameBoards = chal.getScriptData("gameBoards");
 
@@ -27,30 +27,43 @@ if (playerStats[pId].hasPulled)
     var hand = Spark.data.hand;
 
     // create arrays if they are not already set
-    if (!gameBoards[pId].top)
+    if (!gameBoards[pId].top) {
         gameBoards[pId].top = [];
-    if (!gameBoards[pId].mid)
+    }
+
+    if (!gameBoards[pId].mid) {
         gameBoards[pId].mid = [];
-    if (!gameBoards[pId].bot)
+    }
+    
+    if (!gameBoards[pId].bot) {
         gameBoards[pId].bot = [];
+    }
     
     // set this player's board to the hand sent by client
-    gameBoards[pId].top = gameBoards[pId].top.concat(hand.top);
-    gameBoards[pId].mid = gameBoards[pId].mid.concat(hand.mid);
-    gameBoards[pId].bot = gameBoards[pId].bot.concat(hand.bot);
+    if (hand.top) {
+        gameBoards[pId].top = gameBoards[pId].top.concat(hand.top);
+    }
+
+    if (hand.mid) {
+        gameBoards[pId].mid = gameBoards[pId].mid.concat(hand.mid);
+    }
+
+    if (hand.bot) {
+        gameBoards[pId].bot = gameBoards[pId].bot.concat(hand.bot);
+    }
 
 	// update our stats
     var num = gameBoards[pId].top.length + gameBoards[pId].mid.length + gameBoards[pId].bot.length;
     playerStats[pId].cardsPlaced = num;
-	if (num == 13) {
-		playerStats[pId].completed = true;
-	} else {
-		playerStats[pId].completed = false;
-	}
+    if (num == 13) {
+      playerStats[pId].completed = true;
+  } else {
+      playerStats[pId].completed = false;
+  }
 
-    chal.setScriptData("lastMove", hand);
-    chal.setScriptData("gameBoards", gameBoards);
-    chal.setScriptData("playerStats", playerStats);
+  chal.setScriptData("lastMove", hand);
+  chal.setScriptData("gameBoards", gameBoards);
+  chal.setScriptData("playerStats", playerStats);
     /*
     if (playerStats[pId].hasPulled === false){
 

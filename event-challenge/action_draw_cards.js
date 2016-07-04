@@ -33,9 +33,9 @@ if (playerStats[pId].hasPulled === false) {
 	var cardsPulled = playerStats[pId].cardsPulled;
 	var drawn = [];
 
-	if (cardsPulled <=0 && playerStats[pId].inFantasyland)
-		num = 13;
-	else if (cardsPulled <=0)
+	if (cardsPulled <= 0 && playerStats[pId].inFantasyland)
+		num = 14;
+	else if (cardsPulled <= 0)
 		num = 5;
 	else
 		num = 3;
@@ -50,7 +50,7 @@ if (playerStats[pId].hasPulled === false) {
 
     //Player can't pull another card this round
     playerStats[pId].hasPulled = true;
-    playerStats[pId].cardsPulled = num;
+    playerStats[pId].cardsPulled += num;
 
     //Save current hand and player stats
     chal.setScriptData("currentHand", currentHand);
