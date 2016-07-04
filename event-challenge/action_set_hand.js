@@ -53,7 +53,7 @@ if (playerStats[pId].hasPulled)
     }
 
 	// update our stats
-    var num = gameBoards[pId].top.length + gameBoards[pId].mid.length + gameBoards[pId].bot.length;
+    var num = ((gameBoards[pId].top)?gameBoards[pId].top.length:0) + ((gameBoards[pId].mid)?gameBoards[pId].mid.length:0) + ((gameBoards[pId].bot)?gameBoards[pId].bot.length:0);
     playerStats[pId].cardsPlaced = num;
     if (num == 13) {
       playerStats[pId].completed = true;
