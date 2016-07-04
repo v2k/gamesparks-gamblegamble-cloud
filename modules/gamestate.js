@@ -113,9 +113,9 @@ function IsFinalMove(challenge)
 	var players = challenge.getAcceptedPlayerIds();
 	for (i = 0; i < players.length; i++) {
 		var num = 
-			gameBoards[players[i]].top.length +
-			gameBoards[players[i]].mid.length +
-			gameBoards[players[i]].bot.length;
+			((players[i]].top)?players[i]].top.length:0) +
+			((players[i]].mid)?gameBoards[players[i]].mid.length:0) +
+			((players[i]].bot)?gameBoards[players[i]].bot.length:0);
 		if (num < 13) {
 			return false;
 		}

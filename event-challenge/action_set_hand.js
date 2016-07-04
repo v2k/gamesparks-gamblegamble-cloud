@@ -57,13 +57,14 @@ if (playerStats[pId].hasPulled)
     playerStats[pId].cardsPlaced = num;
     if (num == 13) {
       playerStats[pId].completed = true;
-  } else {
+    } else {
       playerStats[pId].completed = false;
-  }
+    }
 
-  chal.setScriptData("lastMove", hand);
-  chal.setScriptData("gameBoards", gameBoards);
-  chal.setScriptData("playerStats", playerStats);
+    chal.setScriptData("lastMove", hand);
+    chal.setScriptData("gameBoards", gameBoards);
+    chal.setScriptData("playerStats", playerStats);
+    
     /*
     if (playerStats[pId].hasPulled === false){
 
