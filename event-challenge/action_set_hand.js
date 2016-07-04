@@ -27,15 +27,15 @@ if (playerStats[pId].hasPulled)
     var hand = Spark.data.hand;
 
     // create arrays if they are not already set
-    if (!gameBoards[pId].top) {
+    if (hand.top && !gameBoards[pId].top) {
         gameBoards[pId].top = [];
     }
 
-    if (!gameBoards[pId].mid) {
+    if (hand.mid && !gameBoards[pId].mid) {
         gameBoards[pId].mid = [];
     }
-    
-    if (!gameBoards[pId].bot) {
+
+    if (hand.bot && !gameBoards[pId].bot) {
         gameBoards[pId].bot = [];
     }
     
