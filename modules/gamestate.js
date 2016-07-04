@@ -17,6 +17,7 @@ function OnRoundStart(challenge)
 	var chal = challenge;//Spark.getChallenge(Spark.getData().challengeInstanceId);
 
 	var gameState = chal.getScriptData("gameState");
+	var playerStats = chal.getScriptData("playerStats");
 
 	//Use the module method to create a stack of cards using 2 decks
 	//We'll store this in private data to no-one can ever work out 
@@ -38,7 +39,11 @@ function OnRoundStart(challenge)
 	for (i = 0; i < players.length; i++) {
 		gameBoards[players[i]] = {};
 		currentHand[players[i]] = {};
+		playerStats[players[i]].hasPulled = false;
+		playerStats[players[i]].cardPulled = 0;
 	}
+
+
 	/*
 	// first player needs to draw cards
 	var drawn = [];

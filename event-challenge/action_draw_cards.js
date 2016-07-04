@@ -30,8 +30,16 @@ if (playerStats[pId].hasPulled === false) {
     
 	// first player needs to draw cards
 	var num = Spark.data.num;
+	var cardsPulled = playerStats["cardsPulled"];
 	var drawn = [];
 
+	if (cardsPulled <=0 && playerStats[pId].inFantasyland)
+		num = 13;
+	else if (cardsPulled <=0)
+		num = 5;
+	else
+		num = 3;
+	
 	//Pull three cards for each player
 	for (var i = 0; i < num; i++) {
 		drawn.push(stackDeal(deck));
