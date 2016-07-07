@@ -32,9 +32,12 @@
 //Declare challenge
 var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
 var spark = Spark.getData();
-var next = spark.nextPlayer;
+//var next = spark.nextPlayer;
 var sparkChal = Spark.getData().challenge;
-var next2 = sparkChal.nextPlayer;
+var nextPlayer = sparkChal.nextPlayer;
+var firstPlayer = sparkChal.nextPlayer;
+var dealer;
+var lastPlayer;
 
 //Player IDs
 var challengerId = challenge.getChallengerId();
@@ -46,6 +49,19 @@ var playerStats = {};
 var players = challenge.getAcceptedPlayerIds();
 for (i = 0; i < players.length; i++) {
 	playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "inFantasyland": false, "hasPulled": false }
+}
+
+while (dealer == null)
+{
+	lastPlayer = nextPlayer;
+	challenge.consumeTurn(nextPlayer);
+	nextPlayer = sparkChal.nextPlayer;
+	
+	if (nextPlayer == firstPlayer)
+	{
+		dealer = lastPlayer;
+		break;
+	}
 }
 
 //Construct the play field JSON - Used for the playing field
@@ -66,7 +82,7 @@ for (i = 0; i < players.length; i++) {
 //playerStats[challengedId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
 
 // handled by gamesparks for turn start
-var gameState = { "dealer": Spark.getData().nextPlayer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
+var gameState = { "dealer": dealer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
 
 //Save the contructed JSONs against the challenge's scriptData
 //chal.setScriptData("deck", deck);

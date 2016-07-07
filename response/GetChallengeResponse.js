@@ -29,8 +29,8 @@
 var spark = Spark.getData();
 var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
 var challenge2 = Spark.getData().challenge;
-var nextPlayer = challenge.nextPlayer;
-var nextPlayer2 = challenge2.nextPlayer;
+var nextPlayer = challenge.nextPlayer; // doesnt work; SparkChallenge protected data?
+var nextPlayer2 = challenge2.nextPlayer; // works
 var players = challenge.getAcceptedPlayerIds();
 var player = Spark.getPlayer();
 
