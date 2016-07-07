@@ -54,7 +54,8 @@ for (i = 0; i < players.length; i++) {
 while (dealer == null)
 {
 	lastPlayer = nextPlayer;
-	challenge.consumeTurn(nextPlayer);
+	var ret = challenge.consumeTurn(nextPlayer);
+	sparkChal = Spark.getData().challenge;
 	nextPlayer = sparkChal.nextPlayer;
 	
 	if (nextPlayer == firstPlayer)
