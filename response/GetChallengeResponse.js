@@ -26,12 +26,12 @@
 
 //Output which card was recieved
 //Spark.setScriptData("Your starter rare card", doc.cardName);
+/*
 var spark = Spark.getData();
 var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
 var challenge2 = Spark.getData().challenge;
 var nextPlayer = challenge.nextPlayer; // doesnt work; SparkChallenge protected data?
 var nextPlayer2 = challenge2.nextPlayer; // works
-var players = challenge.getAcceptedPlayerIds();
 var player = Spark.getPlayer();
 
 // hack for now, 2 players only; dealer is the other player
@@ -44,6 +44,8 @@ if (gameState.dealer == null)
 		}
 	}
 }
+*/
+
 /*
 var spark = Spark.getData();
 var next = spark.nextPlayer;
@@ -68,5 +70,5 @@ if (gameState.dealer == null)
 	 }
 }
 */
-challenge.setScriptData("gameState", gameState);
-Spark.setScriptData(gameState);
+//challenge.setScriptData("gameState", gameState);
+//Spark.setScriptData(gameState);

@@ -5,7 +5,6 @@
 // score, stats => 0
 // pass state to starting player -> OnRoundStarted
 
-
 //Loads the cards module with the functions we need
 //gs_load("dealer");
 
@@ -83,7 +82,7 @@ while (dealer == null)
 //playerStats[challengedId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
 
 // handled by gamesparks for turn start
-var gameState = { "dealer": dealer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
+var gameState = { "first":firstPlayer, "dealer": dealer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
 
 //Save the contructed JSONs against the challenge's scriptData
 //chal.setScriptData("deck", deck);
