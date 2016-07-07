@@ -27,7 +27,7 @@
 //Output which card was recieved
 //Spark.setScriptData("Your starter rare card", doc.cardName);
 var spark = Spark.getData();
-var challenge = Spark.challenge;
+var challenge = Spark.getChallenge(Spark.data.challengeInstanceId);
 var nextPlayer = challenge.nextPlayer;
 var players = challenge.getAcceptedPlayerIds();
 var player = Spark.getPlayer();
