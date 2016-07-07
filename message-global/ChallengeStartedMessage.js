@@ -34,6 +34,7 @@ var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
 var spark = Spark.getData();
 var next = spark.nextPlayer;
 var sparkChal = Spark.getData().challenge;
+var next2 = sparkChal.nextPlayer;
 
 //Player IDs
 var challengerId = challenge.getChallengerId();
