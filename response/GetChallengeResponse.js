@@ -27,8 +27,8 @@
 //Output which card was recieved
 //Spark.setScriptData("Your starter rare card", doc.cardName);
 var spark = Spark.getData();
-var challenge = Spark.getChallenge(challengeInstanceId);
-var next = challenge.nextPlayer;
+var challenge = Spark.challenge;
+var nextPlayer = challenge.nextPlayer;
 var players = challenge.getAcceptedPlayerIds();
 var player = Spark.getPlayer();
 
@@ -36,7 +36,7 @@ var player = Spark.getPlayer();
 if (gameState.dealer == null)
 {
 	for (i = 0; i < players.length; i++) {
-		if (player[i] != next)
+		if (player[i] != nextPlayer)
 		{
 			 gameState.dealer = player[i];
 		}
