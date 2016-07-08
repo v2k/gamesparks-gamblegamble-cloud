@@ -31,7 +31,6 @@
 //Declare challenge
 var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
 var spark = Spark.getData();
-//var next = spark.nextPlayer;
 var sparkChal = Spark.getData().challenge;
 var nextPlayer = sparkChal.nextPlayer;
 var firstPlayer = sparkChal.nextPlayer;
@@ -48,8 +47,14 @@ var playerStats = {};
 var players = challenge.getAcceptedPlayerIds();
 for (i = 0; i < players.length; i++) {
 	playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "inFantasyland": false, "hasPulled": false }
+	// for now, 2 player only; if we're not first, we're dealer
+	if (players[i] != firstPlayer)
+	{
+		dealer = players[i];
+	}
 }
 
+/*
 while (dealer == null)
 {
 	lastPlayer = nextPlayer;
@@ -63,6 +68,7 @@ while (dealer == null)
 		break;
 	}
 }
+*/
 
 //Construct the play field JSON - Used for the playing field
 //var board = {};
