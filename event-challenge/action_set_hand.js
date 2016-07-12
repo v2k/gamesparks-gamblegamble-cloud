@@ -117,11 +117,11 @@ if (playerStats[pId].hasPulled)
 	} else {
 		chal.setScriptData("isFinalMove", finalMove);
 		//Finish player turn
-        var nextPlayer = challenge.nextPlayer;
+        var nextPlayer = chal.nextPlayer;
         Spark.setScriptData("before_nextPlayer", nextPlayer);
         while (nextPlayer != playerOrder[gameState.actionIndex])
         {
-            nextPlayer = challenge.nextPlayer;
+            nextPlayer = chal.nextPlayer;
             chal.consumeTurn(pId);
         }
         
