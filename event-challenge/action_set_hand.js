@@ -125,7 +125,7 @@ if (playerStats[pId].hasPulled)
             chal.consumeTurn(pId);
         }
         
-        nextPlayer = challenge.nextPlayer;
+        nextPlayer = chal.nextPlayer;
         Spark.setScriptData("after_nextPlayer", nextPlayer);
 	}
 
