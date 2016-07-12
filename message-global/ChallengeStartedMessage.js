@@ -56,13 +56,13 @@ for (i = 0; i < players.length; i++) {
 
 
 // use the given next player, shuffle the rest?
-var playerOrder = {};
-playerOrder.Add(firstPlayer);
+var playerOrder = [];
+playerOrder.push(firstPlayer);
 
 for (i = 0; i < players.length; i++) {
 	if (players[i] != firstPlayer)
 	{
-		playerOrder.Add(players[i]);
+		playerOrder.push(players[i]);
 	}
 }
 
