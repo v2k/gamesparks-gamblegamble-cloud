@@ -120,12 +120,15 @@ if (playerStats[pId].hasPulled)
         var updatedChallege = Spark.getChallenge(Spark.getData().challengeInstanceId);
         var nextPlayer = chal.nextPlayer;
         Spark.setScriptData("before_nextPlayer", nextPlayer);
+        Spark.setScriptData("playerOrder_next", playerOrder[gameState.actionIndex]);
+        /*
         while (nextPlayer != playerOrder[gameState.actionIndex])
         {
             updatedChallege = Spark.getChallenge(Spark.getData().challengeInstanceId);
             nextPlayer = updatedChallege.nextPlayer;
             updatedChallege.consumeTurn(pId);
         }
+        */
         
         nextPlayer = updatedChallege.nextPlayer;
         Spark.setScriptData("after_nextPlayer", nextPlayer);
