@@ -43,7 +43,8 @@ var challengedId = challenge.getChallengedPlayerIds()[0];
 
 require("dealer");
 
-var playerStats = {};
+var playerOrder = {};
+//var playerStats = {};
 var players = challenge.getAcceptedPlayerIds();
 for (i = 0; i < players.length; i++) {
 	playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "inFantasyland": false, "hasPulled": false }
@@ -51,6 +52,18 @@ for (i = 0; i < players.length; i++) {
 	if (players[i] != firstPlayer)
 	{
 		dealer = players[i];
+	}
+}
+
+
+// use the given next player, shuffle the rest?
+var playerOrder = {};
+playerOrder.Add(firstPlayer);
+
+for (i = 0; i < players.length; i++) {
+	if (players[i] != firstPlayer)
+	{
+		playerOrder.Add(players[i]);
 	}
 }
 
@@ -88,7 +101,7 @@ while (dealer == null)
 //playerStats[challengedId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
 
 // handled by gamesparks for turn start
-var gameState = { "first":firstPlayer, "dealer": dealer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
+var gameState = { actionIndex:0, "first":firstPlayer, "dealer":dealer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
 
 //Save the contructed JSONs against the challenge's scriptData
 //chal.setScriptData("deck", deck);
@@ -96,6 +109,7 @@ var gameState = { "first":firstPlayer, "dealer": dealer, "turn":0, "round":0, "n
 //chal.setScriptData("currentHand", currentHand);
 challenge.setScriptData("playerStats", playerStats);
 challenge.setScriptData("gameState", gameState);
+challenge.setScriptData("playerOrder", playerOrder);
 
 require("gamestate");
 OnRoundStart(challenge);
