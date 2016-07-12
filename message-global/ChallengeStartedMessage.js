@@ -43,8 +43,7 @@ var challengedId = challenge.getChallengedPlayerIds()[0];
 
 require("dealer");
 
-var playerOrder = {};
-//var playerStats = {};
+var playerStats = {};
 var players = challenge.getAcceptedPlayerIds();
 for (i = 0; i < players.length; i++) {
 	playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "inFantasyland": false, "hasPulled": false }
