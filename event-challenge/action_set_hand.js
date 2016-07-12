@@ -22,6 +22,7 @@ if (playerStats[pId].hasPulled)
     //playerStats[pId].cardsPulled = 0;
 
     var gameBoards = chal.getScriptData("gameBoards");
+    var playerOrder = chal.getScriptData("playerOrder");
 
     // grab the cards that the user set
     var hand = Spark.data.hand;
@@ -89,10 +90,18 @@ if (playerStats[pId].hasPulled)
 
     // if we're the dealer, increment the turn counter
     var gameState = chal.getScriptData("gameState"); 
+    /*
     if (gameState.dealer == pId) {
         gameState.turn++;
     }
+    */
 
+    if (playerOrder[playerOrder.length - 1] == pId)
+    {
+        gameState.turn++;
+    }
+
+    gameState.actionIndex++;
     chal.setScriptData("gameState", gameState);
     // TODO: might not be right to pass the turn.
 	// check the board, see if there are more moves to play; others might be in fantasy land too
@@ -100,13 +109,23 @@ if (playerStats[pId].hasPulled)
 
 	// if it's the final move, let's do scoring 
 	// then pass turn
+
     var stillTurn = false;
 	if (finalMove) {
         stillTurn = true;
 	} else {
 		chal.setScriptData("isFinalMove", finalMove);
 		//Finish player turn
-		chal.consumeTurn(pId);
+        var nextPlayer = Spark.getData().challenge.nextPlayer;
+        Spark.setScriptData("before_nextPlayer", nextPlayer);
+        while (nextPlayer != playerOrder[gameState.actionIndex])
+        {
+            nextPlayer = Spark.getData().challenge.nextPlayer;
+            chal.consumeTurn(pId);
+        }
+        
+        nextPlayer = Spark.getData().challenge.nextPlayer;
+        Spark.setScriptData("after_nextPlayer", nextPlayer);
 	}
 
     chal.setScriptData("stillTurn", stillTurn);
