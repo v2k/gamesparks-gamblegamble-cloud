@@ -62,10 +62,6 @@ if (playerStats[pId].hasPulled)
         playerStats[pId].completed = false;
     }
 
-    chal.setScriptData("lastMove", hand);
-    chal.setScriptData("gameBoards", gameBoards);
-    chal.setScriptData("playerStats", playerStats);
-
 
     chal.setScriptData("gameState", gameState);
     // TODO: might not be right to pass the turn.
@@ -104,4 +100,8 @@ if (playerStats[pId].hasPulled)
     chal.setScriptData("stillTurn", stillTurn);
     Spark.setScriptData("isFinalMove", finalMove);
     Spark.setScriptData("stillTurn", stillTurn);
+
+    chal.setScriptData("lastMove", hand);
+    chal.setScriptData("gameBoards", gameBoards);
+    chal.setScriptData("playerStats", playerStats);
 }
