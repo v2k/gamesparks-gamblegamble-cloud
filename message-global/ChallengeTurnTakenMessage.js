@@ -21,11 +21,13 @@ if (nextPlayer == playerOrder[gameState.actionIndex])
 else
 {
 	
+	var checkPlayer = playerOrder[gameState.actionIndex];
+	challenge.setScriptData("checkPlayer", checkPlayer);
 	var otherPlayer = playerOrder[(gameState.actionIndex + 1) % playerOrder.length];
 	challenge.setScriptData("otherPlayer", otherPlayer);
 	challenge.setScriptData("turntaken_preconsume_nextPlayer", nextPlayer);
 	var A = challenge.consumeTurn(nextPlayer);
-	var B = challenge.consumeTurn(otherPlayer);
+	var B = challenge.consumeTurn(checkPlayer);
 	nextPlayer = Spark.getData().challenge.nextPlayer;
 	challenge.setScriptData("turntaken_postconsume_nextPlayer", nextPlayer);
 	challenge.setScriptData("turntaken_postSPARK_nextPlayer", Spark.getData().nextPlayer);
