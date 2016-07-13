@@ -90,7 +90,8 @@ if (playerStats[pId].hasPulled)
         }
         else
         {
-            gameState.actionIndex++;
+            // this should never overflow, but...
+            gameState.actionIndex = (gameState.actionIndex + 1) % playerOrder.length;
         }
 
         Spark.setScriptData("playerOrder_next", playerOrder[gameState.actionIndex]);
