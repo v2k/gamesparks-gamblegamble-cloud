@@ -12,7 +12,7 @@ var playerOrder = challenge.getScriptData("playerOrder");
 var gameState = challenge.getScriptData("gameState");
 var currentPlayer = challenge.getScriptData("nextPlayer");
 
-if (nextPlayer == playerOrder[gameState.actionIndex])
+if (currentPlayer == playerOrder[gameState.actionIndex])
 {
 	// we're on the correct player
 	// let game continue
@@ -20,7 +20,7 @@ if (nextPlayer == playerOrder[gameState.actionIndex])
 }
 else
 {
-	challenge.consumeTurn(nextPlayer);
+	challenge.consumeTurn(currentPlayer);
 	//var currentPlayer = playerOrder[gameState.actionIndex];
 	
 	// nextPlayer points to the currentPlayer
