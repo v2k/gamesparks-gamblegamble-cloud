@@ -2,8 +2,7 @@
 
 // if we're not on the correct player, consume turn and move to next player
 var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
-var sparkChal = Spark.getData().challenge;
-var nextPlayer = sparkChal.nextPlayer;
+var nextPlayer = Spark.getData().challenge.nextPlayer;
 
 // use the given next player, shuffle the rest?
 var gameState = challenge.getScriptData("gameState"); 
@@ -17,11 +16,13 @@ if (nextPlayer == playerOrder[gameState.actionIndex])
 {
 	// we're on the correct player
 	// let game continue
-	Spark.setScriptData("turntaken_skipped", 1);
+	//Spark.setScriptData("turntaken_skipped", 1);
 }
 else
 {
+	challenge.setScriptData("turntaken_preconsume_nextPlayer", nextPlayer);
 	challenge.consumeTurn(nextPlayer);
+	nextPlayer = Spark.getData().challenge.nextPlayer;
 	challenge.setScriptData("turntaken_postconsume_nextPlayer", nextPlayer);
-	Spark.setScriptData("turntaken_postconsume_nextPlayer", nextPlayer);
+	//Spark.setScriptData("turntaken_postconsume_nextPlayer", nextPlayer);
 }
