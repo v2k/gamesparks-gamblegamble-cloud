@@ -10,6 +10,7 @@ var gameState = challenge.getScriptData("gameState");
 var playerOrder = challenge.getScriptData("playerOrder");
 
 //var isFinalMove = challenge.getScriptData("isFinalMove");
+challenge.setScriptData("turntaken_nextPlayer", nextPlayer);
 
 if (nextPlayer == playerOrder[gameState.actionIndex])
 {
@@ -19,4 +20,5 @@ if (nextPlayer == playerOrder[gameState.actionIndex])
 else
 {
 	challenge.consumeTurn(nextPlayer);
+	challenge.setScriptData("turntaken_postconsume_nextPlayer", nextPlayer);
 }

@@ -80,6 +80,7 @@ if (playerStats[pId].hasPulled)
 	} else {
 		chal.setScriptData("isFinalMove", finalMove);
         var nextPlayer = chal.nextPlayer;
+        chal.setScriptData("before_nextPlayer", nextPlayer);
         Spark.setScriptData("before_nextPlayer", nextPlayer);
         Spark.setScriptData("playerOrder_next", playerOrder[gameState.actionIndex]);
 
