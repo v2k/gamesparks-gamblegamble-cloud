@@ -20,16 +20,22 @@ if (nextPlayer == playerOrder[gameState.actionIndex])
 }
 else
 {
+	//
+	//var currentPlayer = playerOrder[gameState.actionIndex];
 	
+	// nextPlayer points to the currentPlayer
+
 	var checkPlayer = playerOrder[gameState.actionIndex];
 	challenge.setScriptData("checkPlayer", checkPlayer);
 	var otherPlayer = playerOrder[(gameState.actionIndex + 1) % playerOrder.length];
 	challenge.setScriptData("otherPlayer", otherPlayer);
 	challenge.setScriptData("turntaken_preconsume_nextPlayer", nextPlayer);
 	var A = challenge.consumeTurn(nextPlayer);
+	nextPlayer = Spark.getData().challenge.nextPlayer;
+	challenge.setScriptData("turntaken_postconsume_nextPlayerA", nextPlayer);
 	var B = challenge.consumeTurn(checkPlayer);
 	nextPlayer = Spark.getData().challenge.nextPlayer;
-	challenge.setScriptData("turntaken_postconsume_nextPlayer", nextPlayer);
+	challenge.setScriptData("turntaken_postconsume_nextPlayerB", nextPlayer);
 	challenge.setScriptData("turntaken_postSPARK_nextPlayer", Spark.getData().nextPlayer);
 	challenge.setScriptData("TEST_A", A);
 	challenge.setScriptData("TEST_B", B);
