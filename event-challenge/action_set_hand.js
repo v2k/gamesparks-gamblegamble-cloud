@@ -10,7 +10,6 @@ require("gamestate");
 
 //Load challenge
 var chal = Spark.getChallenge(Spark.getData().challengeInstanceId);
-var challenge = Spark.getData().challenge;
 
 //Retrieve player Id
 var pId = Spark.getPlayer().getPlayerId();
@@ -24,6 +23,7 @@ if (playerStats[pId].hasPulled)
 
     var gameBoards = chal.getScriptData("gameBoards");
     var playerOrder = chal.getScriptData("playerOrder");
+    var gameState = chal.getScriptData("gameState"); 
 
     // grab the cards that the user set
     var hand = Spark.data.hand;
@@ -58,9 +58,9 @@ if (playerStats[pId].hasPulled)
     var num = ((gameBoards[pId].top)?gameBoards[pId].top.length:0) + ((gameBoards[pId].mid)?gameBoards[pId].mid.length:0) + ((gameBoards[pId].bot)?gameBoards[pId].bot.length:0);
     playerStats[pId].cardsPlaced = num;
     if (num == 13) {
-      playerStats[pId].completed = true;
+        playerStats[pId].completed = true;
     } else {
-      playerStats[pId].completed = false;
+        playerStats[pId].completed = false;
     }
 
     chal.setScriptData("lastMove", hand);
@@ -90,19 +90,16 @@ if (playerStats[pId].hasPulled)
     */
 
     // if we're the dealer, increment the turn counter
-    var gameState = chal.getScriptData("gameState"); 
-    /*
-    if (gameState.dealer == pId) {
-        gameState.turn++;
-    }
-    */
-
     if (playerOrder[playerOrder.length - 1] == pId)
     {
         gameState.turn++;
+        gameState.actionIndex = 0;
+    }
+    else
+    {
+        gameState.actionIndex++;
     }
 
-    gameState.actionIndex++;
     chal.setScriptData("gameState", gameState);
     // TODO: might not be right to pass the turn.
 	// check the board, see if there are more moves to play; others might be in fantasy land too
@@ -117,21 +114,23 @@ if (playerStats[pId].hasPulled)
 	} else {
 		chal.setScriptData("isFinalMove", finalMove);
 		//Finish player turn
-        var updatedChallege = Spark.getChallenge(Spark.getData().challengeInstanceId);
+        //var updatedChallege = Spark.getChallenge(Spark.getData().challengeInstanceId);
         var nextPlayer = chal.nextPlayer;
         Spark.setScriptData("before_nextPlayer", nextPlayer);
         Spark.setScriptData("playerOrder_next", playerOrder[gameState.actionIndex]);
+        //updatedChallege.consumeTurn(pId);
         /*
         while (nextPlayer != playerOrder[gameState.actionIndex])
         {
             updatedChallege = Spark.getChallenge(Spark.getData().challengeInstanceId);
             nextPlayer = updatedChallege.nextPlayer;
-            updatedChallege.consumeTurn(pId);
+            updatedChallege.consumeTurn(nextPlayer);
         }
         */
         
-        nextPlayer = updatedChallege.nextPlayer;
-        Spark.setScriptData("after_nextPlayer", nextPlayer);
+        //nextPlayer = updatedChallege.nextPlayer;
+        //Spark.setScriptData("after_nextPlayer", nextPlayer);
+        chal.consumeTurn(nextPlayer);
 	}
 
     chal.setScriptData("stillTurn", stillTurn);

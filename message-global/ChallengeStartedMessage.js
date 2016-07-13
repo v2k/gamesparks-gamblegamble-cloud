@@ -47,11 +47,6 @@ var playerStats = {};
 var players = challenge.getAcceptedPlayerIds();
 for (i = 0; i < players.length; i++) {
 	playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "inFantasyland": false, "hasPulled": false }
-	// for now, 2 player only; if we're not first, we're dealer
-	if (players[i] != firstPlayer)
-	{
-		dealer = players[i];
-	}
 }
 
 
@@ -65,6 +60,9 @@ for (i = 0; i < players.length; i++) {
 		playerOrder.push(players[i]);
 	}
 }
+
+dealer = playerOrder[playerOrder.length - 1];
+
 
 /*
 while (dealer == null)
@@ -100,7 +98,7 @@ while (dealer == null)
 //playerStats[challengedId] = {"score": 0, "numFL": 0, "cardsPulled": 0, "hasPulled": false }
 
 // handled by gamesparks for turn start
-var gameState = { actionIndex:0, "first":firstPlayer, "dealer":dealer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };// "turn": challengerId};
+var gameState = { actionIndex:0, "first":firstPlayer, "dealer":dealer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };
 
 //Save the contructed JSONs against the challenge's scriptData
 //chal.setScriptData("deck", deck);
