@@ -10,6 +10,8 @@ var nextPlayer = sparkChal.nextPlayer;
 var gameState = challenge.getScriptData("gameState"); 
 var playerOrder = challenge.getScriptData("playerOrder");
 
+var isFinalMove = challenge.getScriptData("isFinalMove");
+
 if (nextPlayer == playerOrder[gameState.actionIndex])
 {
 	// we're on the correct player

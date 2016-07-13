@@ -19,7 +19,6 @@ var playerStats = chal.getScriptData("playerStats");
 if (playerStats[pId].hasPulled)
 {
     playerStats[pId].hasPulled = false;
-    //playerStats[pId].cardsPulled = 0;
 
     var gameBoards = chal.getScriptData("gameBoards");
     var playerOrder = chal.getScriptData("playerOrder");
@@ -67,28 +66,6 @@ if (playerStats[pId].hasPulled)
     chal.setScriptData("gameBoards", gameBoards);
     chal.setScriptData("playerStats", playerStats);
 
-    /*
-    if (playerStats[pId].hasPulled === false){
-
-        //Retrieve current hands
-        var currentHand = chal.getScriptData("currentHand");
-
-        //Run the sequence to pull a new card
-        require("dealer");
-        
-        //drawCard(pId);
-
-        //Player can't pull another card this round
-        playerStats[pId].hasPulled = true;
-
-        //Save current hand and player stats
-        chal.setScriptData("currentHand", currentHand);
-        chal.setScriptData("playerStats", playerStats);
-    } else {
-        Spark.setScriptError("Error", "Already pulled card this round");
-    }
-    */
-
     // if we're the dealer, increment the turn counter
     if (playerOrder[playerOrder.length - 1] == pId)
     {
@@ -107,30 +84,17 @@ if (playerStats[pId].hasPulled)
 
 	// if it's the final move, let's do scoring 
 	// then pass turn
-
     var stillTurn = false;
 	if (finalMove) {
         stillTurn = true;
 	} else {
 		chal.setScriptData("isFinalMove", finalMove);
-		//Finish player turn
-        //var updatedChallege = Spark.getChallenge(Spark.getData().challengeInstanceId);
         var nextPlayer = chal.nextPlayer;
         Spark.setScriptData("before_nextPlayer", nextPlayer);
         Spark.setScriptData("playerOrder_next", playerOrder[gameState.actionIndex]);
-        //updatedChallege.consumeTurn(pId);
-        /*
-        while (nextPlayer != playerOrder[gameState.actionIndex])
-        {
-            updatedChallege = Spark.getChallenge(Spark.getData().challengeInstanceId);
-            nextPlayer = updatedChallege.nextPlayer;
-            updatedChallege.consumeTurn(nextPlayer);
-        }
-        */
-        
-        //nextPlayer = updatedChallege.nextPlayer;
-        //Spark.setScriptData("after_nextPlayer", nextPlayer);
-        chal.consumeTurn(nextPlayer);
+
+        //Finish player turn
+        //chal.consumeTurn(nextPlayer);
 	}
 
     chal.setScriptData("stillTurn", stillTurn);

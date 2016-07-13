@@ -9,6 +9,5 @@ var playerStats = chal.getScriptData("playerStats");
 
 if (!playerStats[pId].hasScored)
 {
-	
 	playerStats[pId].hasScored = true;
 }
