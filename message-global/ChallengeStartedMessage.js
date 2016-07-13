@@ -43,6 +43,7 @@ challenge.setScriptData("playerStats", playerStats);
 challenge.setScriptData("gameState", gameState);
 challenge.setScriptData("playerOrder", playerOrder);
 challenge.setScriptData("nextPlayerId", firstPlayer);
+challenge.setScriptData("nextPlayer", firstPlayer);
 
 require("gamestate");
 OnRoundStart(challenge);

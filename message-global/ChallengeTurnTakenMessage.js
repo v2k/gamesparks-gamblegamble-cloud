@@ -1,7 +1,8 @@
 // GLOBAL MESSAGE
 
 // if we're not on the correct player, consume turn and move to next player
-var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
+var challengeInstanceId = Spark.getData().challenge.challengeId;
+var challenge = Spark.getChallenge(challengeInstanceId);
 var nextPlayer = Spark.getData().challenge.nextPlayer;
 //var nextPlayer2 = Spark.getChallenge(Spark.getData().challenge.challengeId).nextPlayer;
 //challenge.setScriptData("nextPlayer2", nextPlayer2);
@@ -22,7 +23,7 @@ if (nextPlayer == playerOrder[gameState.actionIndex])
 }
 else
 {
-	challenge.consumeTurn(nextPlayer);
+	//challenge.consumeTurn(nextPlayer);
 	//var currentPlayer = playerOrder[gameState.actionIndex];
 	
 	// nextPlayer points to the currentPlayer
@@ -43,3 +44,5 @@ else
 	*/
 	//Spark.setScriptData("turntaken_postconsume_nextPlayer", nextPlayer);
 }
+
+var setSD = challenge.setScriptData("nextPlayer", nextPlayer);
