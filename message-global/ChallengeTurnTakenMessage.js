@@ -18,5 +18,5 @@ if (nextPlayer == playerOrder[gameState.actionIndex])
 }
 else
 {
-	//challenge.consumeTurn(nextPlayer);
+	challenge.consumeTurn(nextPlayer);
 }
