@@ -11,14 +11,17 @@ var playerOrder = challenge.getScriptData("playerOrder");
 
 //var isFinalMove = challenge.getScriptData("isFinalMove");
 challenge.setScriptData("turntaken_nextPlayer", nextPlayer);
+Spark.setScriptData("turntaken_nextPlayer", nextPlayer);
 
 if (nextPlayer == playerOrder[gameState.actionIndex])
 {
 	// we're on the correct player
 	// let game continue
+	Spark.setScriptData("turntaken_skipped", 1);
 }
 else
 {
 	challenge.consumeTurn(nextPlayer);
 	challenge.setScriptData("turntaken_postconsume_nextPlayer", nextPlayer);
+	Spark.setScriptData("turntaken_postconsume_nextPlayer", nextPlayer);
 }
