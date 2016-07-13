@@ -1,13 +1,11 @@
 // GLOBAL MESSAGE
 
-
 // pick the dealer/first to start
 // score, stats => 0
 // pass state to starting player -> OnRoundStarted
 var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
 var spark = Spark.getData();
 var sparkChal = Spark.getData().challenge;
-var nextPlayer = sparkChal.nextPlayer;
 var firstPlayer = sparkChal.nextPlayer;
 var dealer;
 var lastPlayer;
@@ -44,6 +42,7 @@ var gameState = { actionIndex:0, "first":firstPlayer, "dealer":dealer, "turn":0,
 challenge.setScriptData("playerStats", playerStats);
 challenge.setScriptData("gameState", gameState);
 challenge.setScriptData("playerOrder", playerOrder);
+challenge.setScriptData("nextPlayerId", firstPlayer);
 
 require("gamestate");
 OnRoundStart(challenge);

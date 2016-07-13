@@ -72,15 +72,9 @@ if (playerStats[pId].hasPulled)
     var stillTurn = false;
 	if (finalMove) {
         stillTurn = true;
+        // TODO: figure out who is next etc
 	} else {
 		chal.setScriptData("isFinalMove", finalMove);
-        var nextPlayer = chal.nextPlayer;
-        //chal.setScriptData("before_nextPlayer", nextPlayer);
-        //Spark.setScriptData("before_nextPlayer", nextPlayer);
-
-        //Finish player turn
-        //chal.consumeTurn(nextPlayer); -- TurnTake gets called from a log event; no need to use it here
-        Spark.setScriptData("currentPlayer", pId);
 
         // if we're the dealer, increment the turn counter
         if (playerOrder[playerOrder.length - 1] == pId)
@@ -95,6 +89,8 @@ if (playerStats[pId].hasPulled)
         }
 
         Spark.setScriptData("playerOrder_next", playerOrder[gameState.actionIndex]);
+        // set next player
+        chal.setScriptData("nextPlayerId", playerOrder[gameState.actionIndex]);
 	}
 
     chal.setScriptData("stillTurn", stillTurn);
