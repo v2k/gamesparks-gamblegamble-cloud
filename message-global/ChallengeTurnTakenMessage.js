@@ -3,6 +3,8 @@
 // if we're not on the correct player, consume turn and move to next player
 var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
 var nextPlayer = Spark.getData().challenge.nextPlayer;
+var nextPlayer2 = Spark.getChallenge(Spark.getData().challenge.challengeId).nextPlayer;
+challenge.setScriptData("nextPlayer2", nextPlayer2);
 
 // use the given next player, shuffle the rest?
 var gameState = challenge.getScriptData("gameState"); 
