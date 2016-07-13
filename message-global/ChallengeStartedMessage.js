@@ -35,6 +35,24 @@ for (i = 0; i < players.length; i++) {
 
 dealer = playerOrder[playerOrder.length - 1];
 
+//var nextPlayer = challenge.nextPlayer
+//var players = acceptedIds
+var order = [];
+
+while (order.length != players.length)
+{
+	foreach (player in players)
+  	{
+  		if (challenge.consumeTurn(player))
+  		{
+  			order.push(player);
+  		}
+  	}
+}
+
+challenge.setScriptData("order", order);
+
+
 // handled by gamesparks for turn start
 var gameState = { actionIndex:0, "first":firstPlayer, "dealer":dealer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };
 
