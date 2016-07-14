@@ -90,7 +90,7 @@ if (playerStats[pId].hasPulled)
 
         Spark.setScriptData("playerOrder_next", playerOrder[gameState.actionIndex]);
         // set next player
-        chal.setScriptData("nextPlayerId", playerOrder[gameState.actionIndex]);
+        //chal.setScriptData("nextPlayerId", playerOrder[gameState.actionIndex]);
 	}
 
     chal.setScriptData("stillTurn", stillTurn);

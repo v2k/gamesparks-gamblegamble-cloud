@@ -22,36 +22,21 @@ for (i = 0; i < players.length; i++) {
 	playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "inFantasyland": false, "hasPulled": false }
 }
 
-// use the given next player, shuffle the rest?
+// use the given order
 var playerOrder = [];
-playerOrder.push(firstPlayer);
 
-for (i = 0; i < players.length; i++) {
-	if (players[i] != firstPlayer)
-	{
-		playerOrder.push(players[i]);
-	}
-}
-
-dealer = playerOrder[playerOrder.length - 1];
-
-//var nextPlayer = challenge.nextPlayer
-//var players = acceptedIds
-var order = [];
-
-while (order.length != players.length)
+while (playerOrder.length != players.length)
 {
 	for (i = 0; i < players.length; i++) 
 	{
   		if (challenge.consumeTurn(players[i]))
   		{
-  			order.push(players[i]);
+  			playerOrder.push(players[i]);
   		}
   	}
 }
 
-challenge.setScriptData("order", order);
-
+dealer = playerOrder[playerOrder.length - 1];
 
 // handled by gamesparks for turn start
 var gameState = { actionIndex:0, "first":firstPlayer, "dealer":dealer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };
@@ -60,8 +45,6 @@ var gameState = { actionIndex:0, "first":firstPlayer, "dealer":dealer, "turn":0,
 challenge.setScriptData("playerStats", playerStats);
 challenge.setScriptData("gameState", gameState);
 challenge.setScriptData("playerOrder", playerOrder);
-challenge.setScriptData("nextPlayerId", firstPlayer);
-challenge.setScriptData("nextPlayer", firstPlayer);
 
 require("gamestate");
 OnRoundStart(challenge);

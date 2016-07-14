@@ -42,6 +42,4 @@ else
 	//Spark.setScriptData("turntaken_postconsume_nextPlayer", nextPlayer);
 }
 
-
-Spark.setScriptData("currentPlayer", currentPlayer);
-
+Spark.setScriptData("currentPlayer", playerOrder[gameState.actionIndex]);
