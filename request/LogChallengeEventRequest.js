@@ -13,6 +13,9 @@ var gameState = challenge.getScriptData("gameState");
 var nextPlayer = challenge.getScriptData("nextPlayer");
 //var	nextPlayer = Spark.getData().challenge.nextPlayer;
 
+challenge.setScriptData("TEST_nextPlayer", nextPlayer);
+challenge.setScriptData("TEST_whoTurn", playerOrder[gameState.actionIndex]);
+
 if (nextPlayer == playerOrder[gameState.actionIndex])
 {
 	// we're on the correct player
