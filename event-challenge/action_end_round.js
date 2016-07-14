@@ -4,6 +4,7 @@
 
 var challenge = Spark.getChallenge(Spark.getData().challengeInstanceId);
 
+var challenge.setScriptData("action_end_round", 1);
 var scoring = Spark.data.scoring;
 
 //Retrieve player Id

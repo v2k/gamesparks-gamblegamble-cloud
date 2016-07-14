@@ -72,6 +72,7 @@ if (playerStats[pId].hasPulled)
     var stillTurn = false;
 	if (finalMove) {
         stillTurn = true;
+        gameState.roundCompleted = true;
         // TODO: figure out who is next etc
 	} else {
 		chal.setScriptData("isFinalMove", finalMove);
