@@ -13,6 +13,7 @@ var gameState = challenge.getScriptData("gameState");
 var nextPlayer = challenge.getScriptData("nextPlayer");
 //var	nextPlayer = Spark.getData().challenge.nextPlayer;
 
+challenge.setScriptData("TEST_actionIndex", gameState.actionIndex);
 challenge.setScriptData("TEST_nextPlayer", nextPlayer);
 challenge.setScriptData("TEST_whoTurn", playerOrder[gameState.actionIndex]);
 
