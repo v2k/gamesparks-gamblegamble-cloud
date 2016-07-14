@@ -10,9 +10,10 @@ var challengeInstanceId = Spark.getData().challengeInstanceId;
 var challenge = Spark.getChallenge(challengeInstanceId);
 var playerOrder = challenge.getScriptData("playerOrder");
 var gameState = challenge.getScriptData("gameState");
-var currentPlayer = challenge.getScriptData("nextPlayer");
+//var currentPlayer = challenge.getScriptData("nextPlayer");
+var	nextPlayer = Spark.getData().challenge.nextPlayer;
 
-if (currentPlayer == playerOrder[gameState.actionIndex])
+if (nextPlayer == playerOrder[gameState.actionIndex])
 {
 	// we're on the correct player
 	// let game continue
@@ -20,7 +21,7 @@ if (currentPlayer == playerOrder[gameState.actionIndex])
 }
 else
 {
-	challenge.consumeTurn(currentPlayer);
+	challenge.consumeTurn(nextPlayer);
 	//var currentPlayer = playerOrder[gameState.actionIndex];
 	
 	// nextPlayer points to the currentPlayer
