@@ -25,7 +25,10 @@ if (nextPlayer == playerOrder[gameState.actionIndex])
 }
 else
 {
-	challenge.consumeTurn(nextPlayer);
+
+		//challenge.consumeTurn(nextPlayer);
+
+
 	//var currentPlayer = playerOrder[gameState.actionIndex];
 	
 	// nextPlayer points to the currentPlayer
