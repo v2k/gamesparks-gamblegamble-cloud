@@ -41,8 +41,8 @@ var order = [];
 
 while (order.length != players.length)
 {
-	for (i = 0; i < players.length; i++) {
-  	{
+	for (i = 0; i < players.length; i++) 
+	{
   		if (challenge.consumeTurn(players[i]))
   		{
   			order.push(players[i]);
