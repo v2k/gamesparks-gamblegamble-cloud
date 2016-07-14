@@ -5,6 +5,21 @@
 // For details of the GameSparks Cloud Code API see https://portal.gamesparks.net/docs.htm			
 //
 // ====================================================================================================
+function SetupNextRound(challenge)
+{
+	var gameState = challenge.getScriptData("gameState");
+	var playerOrder = challenge.getScriptData("playerOrder", playerOrder);
+	gameState.startingIndex = (gameState.startingIndex + 1) % gameState.numPlayers;
+	gameState.first = playerOrder[gameState.startingIndex];
+	gameState.dealer = playerOrder[gameState.startingIndex];
+	gameState.actionIndex = gameState.startingIndex;
+
+	// reorder, so dealer is always last in list?
+	//var newDealer = playerOrder.shift();
+	//playerOrder.push(newDealer);
+	challenge.setScriptData("gameState", gameState);
+}
+
 function OnRoundStart(challenge)
 {
 	gs_load("dealer");
@@ -70,6 +85,8 @@ function OnRoundStart(challenge)
 
 	chal.setScriptData("currentHand", currentHand);
 	chal.setScriptData("gameBoards", gameBoards);
+	chal.setScriptData("gameState", gameState);
+	chal.setScriptData("playerStats", playerStats);
 	//chal.setScriptData("lastMove", lastMove);
 
 	chal.setPrivateData("deck", deck);
@@ -122,4 +139,9 @@ function IsFinalMove(challenge)
 	}
 
 	return true;
+}
+
+function PassTurnPointer()
+{
+
 }

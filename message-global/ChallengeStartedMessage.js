@@ -19,7 +19,7 @@ require("dealer");
 var playerStats = {};
 var players = challenge.getAcceptedPlayerIds();
 for (i = 0; i < players.length; i++) {
-	playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "inFantasyland": false, "hasPulled": false }
+	playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "inFantasyland": false, "hasPulled": false, "hasScored": false }
 }
 
 // use the given order
@@ -39,7 +39,7 @@ while (playerOrder.length != players.length)
 dealer = playerOrder[playerOrder.length - 1];
 
 // handled by gamesparks for turn start
-var gameState = { actionIndex:0, "first":firstPlayer, "dealer":dealer, "turn":0, "round":0, "num_players": players.length, "is_last_move": false };
+var gameState = { actionIndex:0, startingIndex:0, "first":firstPlayer, "dealer":dealer, "turn":0, "round":0, "numPlayers": players.length, "is_last_move": false };
 
 //Save the contructed JSONs against the challenge's scriptData
 challenge.setScriptData("playerStats", playerStats);

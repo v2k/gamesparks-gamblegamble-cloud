@@ -80,7 +80,7 @@ if (playerStats[pId].hasPulled)
         if (playerOrder[playerOrder.length - 1] == pId)
         {
             gameState.turn++;
-            gameState.actionIndex = 0;
+            gameState.actionIndex = gameState.startingIndex;
         }
         else
         {
