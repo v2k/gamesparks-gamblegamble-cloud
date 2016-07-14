@@ -13,6 +13,7 @@ var playerOrder = challenge.getScriptData("playerOrder");
 
 //var isFinalMove = challenge.getScriptData("isFinalMove");
 challenge.setScriptData("turntaken_nextPlayer", nextPlayer);
+challenge.setScriptData("turntaken_actionIndex", gameState.actionIndex);
 Spark.setScriptData("turntaken_nextPlayer", nextPlayer);
 
 if (nextPlayer == playerOrder[gameState.actionIndex])

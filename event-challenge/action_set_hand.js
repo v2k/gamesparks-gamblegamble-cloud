@@ -99,6 +99,7 @@ if (playerStats[pId].hasPulled)
 
     chal.setScriptData("lastMove", hand);
     chal.setScriptData("gameBoards", gameBoards);
+    chal.setScriptData("set_hand_actionIndex", gameState.actionIndex);
     chal.setScriptData("playerStats", playerStats);
     chal.setScriptData("gameState", gameState);
 }
