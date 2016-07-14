@@ -10,8 +10,8 @@ var challengeInstanceId = Spark.getData().challengeInstanceId;
 var challenge = Spark.getChallenge(challengeInstanceId);
 var playerOrder = challenge.getScriptData("playerOrder");
 var gameState = challenge.getScriptData("gameState");
-//var currentPlayer = challenge.getScriptData("nextPlayer");
-var	nextPlayer = Spark.getData().challenge.nextPlayer;
+var nextPlayer = challenge.getScriptData("nextPlayer");
+//var	nextPlayer = Spark.getData().challenge.nextPlayer;
 
 if (nextPlayer == playerOrder[gameState.actionIndex])
 {

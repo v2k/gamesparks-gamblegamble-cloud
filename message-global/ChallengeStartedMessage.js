@@ -45,6 +45,7 @@ var gameState = { actionIndex:0, "first":firstPlayer, "dealer":dealer, "turn":0,
 challenge.setScriptData("playerStats", playerStats);
 challenge.setScriptData("gameState", gameState);
 challenge.setScriptData("playerOrder", playerOrder);
+challenge.setScriptData("nextPlayer", nextPlayer);
 
 require("gamestate");
 OnRoundStart(challenge);
