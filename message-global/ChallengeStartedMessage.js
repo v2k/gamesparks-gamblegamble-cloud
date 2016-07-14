@@ -41,11 +41,11 @@ var order = [];
 
 while (order.length != players.length)
 {
-	foreach (player in players)
+	for (i = 0; i < players.length; i++) {
   	{
-  		if (challenge.consumeTurn(player))
+  		if (challenge.consumeTurn(players[i]))
   		{
-  			order.push(player);
+  			order.push(players[i]);
   		}
   	}
 }
