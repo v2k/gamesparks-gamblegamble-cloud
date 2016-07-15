@@ -43,7 +43,8 @@ for (var playerId in playerStats)
 if (everyoneScored)
 {
 	gs_load("gamestate");
-	OnSetupNextRound();
+	OnSetupNextRound(challenge);
+	OnRoundStart(challenge);
 }
 else
 {
