@@ -11,6 +11,7 @@ var scoring = Spark.data.scoring;
 var pId = Spark.getPlayer().getPlayerId();
 //Retrieve player stats
 var playerStats = challenge.getScriptData("playerStats");
+var gameState = challenge.getScriptData("gameState");
 
 if (!playerStats[pId].hasScored)
 {
