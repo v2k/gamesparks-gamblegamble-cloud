@@ -7,11 +7,12 @@ var challenge = Spark.getChallenge(Spark.getData().challengeInstanceId);
 var challenge.setScriptData("action_end_round", 1);
 var scoring = Spark.data.scoring;
 
-//Retrieve player Id
-var pId = Spark.getPlayer().getPlayerId();
 //Retrieve player stats
 var playerStats = challenge.getScriptData("playerStats");
 var gameState = challenge.getScriptData("gameState");
+
+//Retrieve player Id
+var pId = Spark.getPlayer().getPlayerId();
 
 if (!playerStats[pId].hasScored)
 {
@@ -34,7 +35,9 @@ for (var playerId in playerStats)
 	if (playerStats.hasOwnProperty(playerId))
 	{
 		if (!playerStats[playerId].hasScored)
+		{
 			everyoneScored = false;
+		}
 	}
 }
 
