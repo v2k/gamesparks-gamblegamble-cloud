@@ -10,10 +10,12 @@ var playerStats = challenge.getScriptData("playerStats");
 var gameState = challenge.getScriptData("gameState");
 var playerOrder = challenge.getScriptData("playerOrder");
 
+var test = 1;
+challenge.setScriptData("action_end_round", test);
 //Retrieve player Id
 var pId = Spark.getPlayer().getPlayerId();
 
-if (!playerStats[pId].hasScored)
+if (!playerStats[pId].hasOwnProperty(hasScored) || !playerStats[pId].hasScored)
 {
 	for (var playerId in playerStats)
 	{
@@ -40,6 +42,7 @@ for (var playerId in playerStats)
 	}
 }
 
+challenge.setScriptData("everyoneScored", everyoneScored);
 if (everyoneScored)
 {
 	gs_load("gamestate");
