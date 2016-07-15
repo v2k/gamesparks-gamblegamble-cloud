@@ -1,10 +1,8 @@
-// TODO
 /// this is set as an 'ok to advance to next round action' - allows each player to view scoring locally
-//Load challenge
 
 var challenge = Spark.getChallenge(Spark.getData().challengeInstanceId);
 
-var challenge.setScriptData("action_end_round", 1);
+//var challenge.setScriptData("action_end_round", 1);
 var scoring = Spark.data.scoring;
 
 //Retrieve player stats
@@ -56,3 +54,4 @@ challenge.setScriptData("gameState", gameState);
 
 Spark.setScriptData("playerStats", playerStats);
 Spark.setScriptData("gameState", gameState);
+
