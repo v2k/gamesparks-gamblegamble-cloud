@@ -15,7 +15,7 @@ challenge.setScriptData("action_end_round", test);
 //Retrieve player Id
 var pId = Spark.getPlayer().getPlayerId();
 
-if (!playerStats[pId].hasOwnProperty(hasScored) || !playerStats[pId].hasScored)
+if (!playerStats[pId].hasOwnProperty("hasScored") || !playerStats[pId].hasScored)
 {
 	for (var playerId in playerStats)
 	{
