@@ -35,7 +35,7 @@ function OnRoundStart(challenge)
 	var gameState = challenge.getScriptData("gameState");
 	var playerStats = challenge.getScriptData("playerStats");
 
-	gameState.turn = 0;
+	gameState.turn = 0
 
 	//Use the module method to create a stack of cards using 2 decks
 	//We'll store this in private data to no-one can ever work out 
@@ -59,6 +59,7 @@ function OnRoundStart(challenge)
 		currentHand[players[i]] = {};
 		playerStats[players[i]].hasPulled = false;
 		playerStats[players[i]].cardsPulled = 0;
+		playerStats[players[i]].cardsPlaced = 0;
 	}
 
 
