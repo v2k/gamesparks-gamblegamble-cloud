@@ -11,8 +11,10 @@ function OnSetupNextRound(gameState, playerOrder)
 	//var playerOrder = challenge.getScriptData("playerOrder", playerOrder);
 	gameState.startingIndex = (gameState.startingIndex + 1) % gameState.numPlayers;
 	gameState.first = playerOrder[gameState.startingIndex];
-	gameState.dealer = playerOrder[gameState.startingIndex];
-	gameState.actionIndex = gameState.startingIndex;
+
+	var dealerIndex = (gameState.startingIndex + (gameState.numPlayers - 1)) % gameState.numPlayers;
+	gameState.dealer = playerOrder[dealerIndex];
+	gameState.round++;
 
 	// reorder, so dealer is always last in list?
 	//var newDealer = playerOrder.shift();
@@ -29,10 +31,11 @@ function OnRoundStart(challenge)
 
 	//Gets the current challenge so we can populate it with cards and hands
 	//This uses the GameSparks "Spark" API (Documented in the portal)
-	var chal = challenge;//Spark.getChallenge(Spark.getData().challengeInstanceId);
 
-	var gameState = chal.getScriptData("gameState");
-	var playerStats = chal.getScriptData("playerStats");
+	var gameState = challenge.getScriptData("gameState");
+	var playerStats = challenge.getScriptData("playerStats");
+
+	gameState.turn = 0;
 
 	//Use the module method to create a stack of cards using 2 decks
 	//We'll store this in private data to no-one can ever work out 
@@ -83,13 +86,13 @@ function OnRoundStart(challenge)
 	//var currentBoard = {"top" : "Ac" }
 	//var lastSet = { "top" : "Ac" }
 
-	chal.setScriptData("currentHand", currentHand);
-	chal.setScriptData("gameBoards", gameBoards);
-	chal.setScriptData("gameState", gameState);
-	chal.setScriptData("playerStats", playerStats);
+	challenge.setScriptData("currentHand", currentHand);
+	challenge.setScriptData("gameBoards", gameBoards);
+	challenge.setScriptData("gameState", gameState);
+	challenge.setScriptData("playerStats", playerStats);
 	//chal.setScriptData("lastMove", lastMove);
 
-	chal.setPrivateData("deck", deck);
+	challenge.setPrivateData("deck", deck);
 
 	/*
 	   if (playerStats[pId].hasPulled === false){

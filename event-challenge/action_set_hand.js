@@ -78,7 +78,8 @@ if (playerStats[pId].hasPulled)
 		chal.setScriptData("isFinalMove", finalMove);
 
         // if we're the dealer, increment the turn counter
-        if (playerOrder[playerOrder.length - 1] == pId)
+        //if (playerOrder[playerOrder.length - 1] == pId)
+        if (pId == gameState.dealer)
         {
             gameState.turn++;
             gameState.actionIndex = gameState.startingIndex;
