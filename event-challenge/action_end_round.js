@@ -45,6 +45,7 @@ for (var playerId in playerStats)
 challenge.setScriptData("everyoneScored", everyoneScored);
 if (everyoneScored)
 {
+	challenge.setScriptData("gameState", gameState);
 	gs_load("gamestate");
 	OnSetupNextRound(challenge);
 	OnRoundStart(challenge);
