@@ -8,6 +8,7 @@ var scoring = Spark.data.scoring;
 //Retrieve player stats
 var playerStats = challenge.getScriptData("playerStats");
 var gameState = challenge.getScriptData("gameState");
+var playerOrder = challenge.getScriptData("playerOrder");
 
 //Retrieve player Id
 var pId = Spark.getPlayer().getPlayerId();
