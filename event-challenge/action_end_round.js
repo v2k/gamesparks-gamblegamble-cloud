@@ -47,7 +47,7 @@ if (everyoneScored)
 {
 	//challenge.setScriptData("gameState", gameState);
 	gs_load("gamestate");
-	OnSetupNextRound(challenge);
+	OnSetupNextRound(gameState, playerOrder);
 	OnRoundStart(challenge);
 }
 else

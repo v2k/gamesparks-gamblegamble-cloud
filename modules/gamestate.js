@@ -5,7 +5,7 @@
 // For details of the GameSparks Cloud Code API see https://portal.gamesparks.net/docs.htm			
 //
 // ====================================================================================================
-function SetupNextRound(gameState, playerOrder)
+function OnSetupNextRound(gameState, playerOrder)
 {
 	//var gameState = challenge.getScriptData("gameState");
 	//var playerOrder = challenge.getScriptData("playerOrder", playerOrder);
