@@ -45,7 +45,7 @@ for (var playerId in playerStats)
 challenge.setScriptData("everyoneScored", everyoneScored);
 if (everyoneScored)
 {
-	challenge.setScriptData("gameState", gameState);
+	//challenge.setScriptData("gameState", gameState);
 	gs_load("gamestate");
 	OnSetupNextRound(challenge);
 	OnRoundStart(challenge);
@@ -57,6 +57,7 @@ else
 }
 
 challenge.setScriptData("gameState", gameState);
+challenge.setScriptData("playerStats", playerStats);
 
 Spark.setScriptData("playerStats", playerStats);
 Spark.setScriptData("gameState", gameState);

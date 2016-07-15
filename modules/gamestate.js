@@ -5,10 +5,10 @@
 // For details of the GameSparks Cloud Code API see https://portal.gamesparks.net/docs.htm			
 //
 // ====================================================================================================
-function SetupNextRound(challenge)
+function SetupNextRound(gameState, playerOrder)
 {
-	var gameState = challenge.getScriptData("gameState");
-	var playerOrder = challenge.getScriptData("playerOrder", playerOrder);
+	//var gameState = challenge.getScriptData("gameState");
+	//var playerOrder = challenge.getScriptData("playerOrder", playerOrder);
 	gameState.startingIndex = (gameState.startingIndex + 1) % gameState.numPlayers;
 	gameState.first = playerOrder[gameState.startingIndex];
 	gameState.dealer = playerOrder[gameState.startingIndex];
