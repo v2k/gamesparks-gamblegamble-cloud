@@ -10,11 +10,12 @@ function OnSetupNextRound(gameState, playerOrder)
 	//var gameState = challenge.getScriptData("gameState");
 	//var playerOrder = challenge.getScriptData("playerOrder", playerOrder);
 	gameState.startingIndex = (gameState.startingIndex + 1) % gameState.numPlayers;
+	gameState.actionIndex = startingIndex;
 	gameState.first = playerOrder[gameState.startingIndex];
 
 	var dealerIndex = (gameState.startingIndex + (gameState.numPlayers - 1)) % gameState.numPlayers;
 	gameState.dealer = playerOrder[dealerIndex];
-	gameState.turn = 0
+	gameState.turn = 0;
 	gameState.round++;
 
 	// reorder, so dealer is always last in list?
@@ -36,7 +37,7 @@ function OnRoundStart(challenge)
 	var gameState = challenge.getScriptData("gameState");
 	var playerStats = challenge.getScriptData("playerStats");
 
-	gameState.turn = 0
+	gameState.turn = 0;
 
 	//Use the module method to create a stack of cards using 2 decks
 	//We'll store this in private data to no-one can ever work out 
