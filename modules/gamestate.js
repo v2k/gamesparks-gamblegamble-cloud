@@ -14,6 +14,7 @@ function OnSetupNextRound(gameState, playerOrder)
 
 	var dealerIndex = (gameState.startingIndex + (gameState.numPlayers - 1)) % gameState.numPlayers;
 	gameState.dealer = playerOrder[dealerIndex];
+	gameState.turn = 0
 	gameState.round++;
 
 	// reorder, so dealer is always last in list?
