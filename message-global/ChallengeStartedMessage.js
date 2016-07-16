@@ -47,5 +47,5 @@ challenge.setScriptData("gameState", gameState);
 challenge.setScriptData("playerOrder", playerOrder);
 challenge.setScriptData("nextPlayer", firstPlayer);
 
-require("gamestate");
-OnRoundStart(challenge);
+gs_load("gamestate");
+OnRoundStart(gameState, playerStats);

@@ -24,7 +24,7 @@ function OnSetupNextRound(gameState, playerOrder)
 	challenge.setScriptData("gameState", gameState);
 }
 
-function OnRoundStart(challenge)
+function OnRoundStart(gameState, playerStats)
 {
 	gs_load("dealer");
 
@@ -33,9 +33,6 @@ function OnRoundStart(challenge)
 
 	//Gets the current challenge so we can populate it with cards and hands
 	//This uses the GameSparks "Spark" API (Documented in the portal)
-
-	var gameState = challenge.getScriptData("gameState");
-	var playerStats = challenge.getScriptData("playerStats");
 
 	gameState.turn = 0;
 
@@ -48,6 +45,7 @@ function OnRoundStart(challenge)
 	var gameBoards = {};
 	//var board = [];   
 	var currentHand = {};
+	var lastMove = {};
 
 	//Gets the list of player ID's who have accepted the challenge
 	var players = challenge.getAcceptedPlayerIds();
@@ -90,6 +88,7 @@ function OnRoundStart(challenge)
 	//var lastSet = { "top" : "Ac" }
 
 	challenge.setScriptData("currentHand", currentHand);
+	challenge.setScriptData("lastMove", lastMove);
 	challenge.setScriptData("gameBoards", gameBoards);
 	challenge.setScriptData("gameState", gameState);
 	challenge.setScriptData("playerStats", playerStats);
