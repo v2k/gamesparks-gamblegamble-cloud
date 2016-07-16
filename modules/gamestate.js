@@ -10,7 +10,7 @@ function OnSetupNextRound(gameState, playerOrder)
 	//var gameState = challenge.getScriptData("gameState");
 	//var playerOrder = challenge.getScriptData("playerOrder", playerOrder);
 	gameState.startingIndex = (gameState.startingIndex + 1) % gameState.numPlayers;
-	gameState.actionIndex = startingIndex;
+	gameState.actionIndex = gameState.startingIndex;
 	gameState.first = playerOrder[gameState.startingIndex];
 
 	var dealerIndex = (gameState.startingIndex + (gameState.numPlayers - 1)) % gameState.numPlayers;
