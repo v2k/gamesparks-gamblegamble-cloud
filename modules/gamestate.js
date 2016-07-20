@@ -60,6 +60,7 @@ function OnRoundStart(gameState, playerStats)
 		playerStats[players[i]].hasPulled = false;
 		playerStats[players[i]].cardsPulled = 0;
 		playerStats[players[i]].cardsPlaced = 0;
+		playerStats[players[i]].hasScored = false;
 	}
 
 
