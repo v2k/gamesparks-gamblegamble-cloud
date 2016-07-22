@@ -27,3 +27,4 @@ else
 
 challenge.setScriptData("nextPlayer", nextPlayer);
 challenge.setScriptData("turnTakenPlayer", playerId);
+Spark.setScriptData("turnTakenPlayer", playerId);
