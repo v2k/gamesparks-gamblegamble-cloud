@@ -1,8 +1,9 @@
 // GLOBAL MESSAGE
 
 // if we're not on the correct player, consume turn and move to next player
-var challengeInstanceId = Spark.getData().challenge.challengeId;
-var challenge = Spark.getChallenge(challengeInstanceId);
+var challenge = Spark.getChallenge(Spark.getData().challenge.challengeId);
+//var challengeInstanceId = Spark.getData().challenge.challengeId;
+//var challenge = Spark.getChallenge(challengeInstanceId);
 var nextPlayer = Spark.getData().challenge.nextPlayer;
 var playerId = Spark.getPlayer().getPlayerId();
 
