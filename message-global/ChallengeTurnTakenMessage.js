@@ -4,6 +4,7 @@
 var challengeInstanceId = Spark.getData().challenge.challengeId;
 var challenge = Spark.getChallenge(challengeInstanceId);
 var nextPlayer = Spark.getData().challenge.nextPlayer;
+var playerId = Spark.getPlayer().getPlayerId();
 
 // use the given next player, shuffle the rest?
 var gameState = challenge.getScriptData("gameState"); 
@@ -25,3 +26,4 @@ else
 }
 
 challenge.setScriptData("nextPlayer", nextPlayer);
+challenge.setScriptData("turnTakenPlayer", playerId);
