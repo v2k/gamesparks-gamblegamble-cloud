@@ -20,10 +20,12 @@ if (nextPlayer == playerOrder[gameState.actionIndex])
 {
 	// we're on the correct player
 	// let game continue
+	challenge.setScriptData("turntaken_advanced", 0);
 }
 else
 {
 	challenge.consumeTurn(nextPlayer);
+	challenge.setScriptData("turntaken_advanced", 1);
 }
 
 challenge.setScriptData("nextPlayer", nextPlayer);
