@@ -28,6 +28,8 @@ else
 	challenge.setScriptData("turntaken_advanced", 1);
 }
 
-challenge.setScriptData("nextPlayer", nextPlayer);
+// update our next player pointer
+//nextPlayer = playerOrder[gameState.actionIndex];
+challenge.setScriptData("nextPlayer", nextPlayer); // only used for debugging?
 challenge.setScriptData("turnTakenPlayer", playerId);
 Spark.setScriptData("turnTakenPlayer", playerId);
