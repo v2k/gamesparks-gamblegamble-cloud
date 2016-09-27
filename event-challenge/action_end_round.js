@@ -21,7 +21,8 @@ if (!playerStats[pId].hasOwnProperty("hasScored") || !playerStats[pId].hasScored
 	{
 		if (playerStats.hasOwnProperty(playerId))
 		{
-			playerStats[playerId].score = scoring[playerId];
+			playerStats[playerId].score = scoring[playerId].score;
+			playerStats[playerId].inFantasyland = scoring[playerId].FL;
 		}
 	}
 
