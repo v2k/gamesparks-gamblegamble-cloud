@@ -35,6 +35,7 @@ function OnRoundStart(gameState, playerStats)
 	//This uses the GameSparks "Spark" API (Documented in the portal)
 
 	gameState.turn = 0;
+	gameState.roundCompleted = false;
 
 	//Use the module method to create a stack of cards using 2 decks
 	//We'll store this in private data to no-one can ever work out 
@@ -61,6 +62,9 @@ function OnRoundStart(gameState, playerStats)
 		playerStats[players[i]].cardsPulled = 0;
 		playerStats[players[i]].cardsPlaced = 0;
 		playerStats[players[i]].hasScored = false;
+		playerStats[players[i]].inFantasyLand = false;
+		playerStats[players[i]].staysFantasyLand = false;
+		playerStats[players[i]].qualifiedFantasyLand = false;
 	}
 
 

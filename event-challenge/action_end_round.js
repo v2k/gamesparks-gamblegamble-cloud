@@ -10,8 +10,8 @@ var playerStats = challenge.getScriptData("playerStats");
 var gameState = challenge.getScriptData("gameState");
 var playerOrder = challenge.getScriptData("playerOrder");
 
-var test = 1;
-challenge.setScriptData("action_end_round", test);
+//var test = 1;
+//challenge.setScriptData("action_end_round", test);
 //Retrieve player Id
 var pId = Spark.getPlayer().getPlayerId();
 
@@ -22,7 +22,9 @@ if (!playerStats[pId].hasOwnProperty("hasScored") || !playerStats[pId].hasScored
 		if (playerStats.hasOwnProperty(playerId))
 		{
 			playerStats[playerId].score = scoring[playerId].score;
-			playerStats[playerId].inFantasyland = scoring[playerId].FL;
+			playerStats[playerId].inFantasyland = scoring[playerId].inFL;
+			playerStats[playerId].staysFantasyLand = scoring[playerId].stayFL;
+			playerStats[playerId].qualifiedFantasyLand = scoring[playerId].qFL;
 		}
 	}
 
