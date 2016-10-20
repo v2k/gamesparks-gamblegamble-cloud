@@ -22,7 +22,7 @@ if (!playerStats[pId].hasOwnProperty("hasScored") || !playerStats[pId].hasScored
 		if (playerStats.hasOwnProperty(playerId))
 		{
 			playerStats[playerId].score = scoring[playerId].score;
-			playerStats[playerId].inFantasyland = scoring[playerId].inFL;
+			playerStats[playerId].inFantasyLand = scoring[playerId].inFL;
 			playerStats[playerId].staysFantasyLand = scoring[playerId].stayFL;
 			playerStats[playerId].qualifiedFantasyLand = scoring[playerId].qFL;
 		}
