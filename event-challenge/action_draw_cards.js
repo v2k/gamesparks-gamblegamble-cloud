@@ -33,7 +33,7 @@ if (playerStats[pId].hasPulled === false) {
 	var cardsPulled = playerStats[pId].cardsPulled;
 	var drawn = [];
 
-	if (cardsPulled <= 0 && playerStats[pId].inFantasyland)
+	if (cardsPulled <= 0 && playerStats[pId].inFantasyLand)
 		num = 14;
 	else if (cardsPulled <= 0)
 		num = 5;

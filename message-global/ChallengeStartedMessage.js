@@ -19,7 +19,7 @@ require("dealer");
 var playerStats = {};
 var players = challenge.getAcceptedPlayerIds();
 for (i = 0; i < players.length; i++) {
-	playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "inFantasyland": false, "hasPulled": false, "hasScored": false }
+	playerStats[players[i]] = {"score": 0, "numFL": 0, "cardsPulled": 0, "inFantasyLand": false, "hasPulled": false, "hasScored": false }
 }
 
 // use the given order
