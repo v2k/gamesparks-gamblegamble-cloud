@@ -62,7 +62,7 @@ function OnRoundStart(gameState, playerStats)
 		playerStats[players[i]].cardsPulled = 0;
 		playerStats[players[i]].cardsPlaced = 0;
 		playerStats[players[i]].hasScored = false;
-		playerStats[players[i]].inFantasyLand = false;
+		//playerStats[players[i]].inFantasyLand = false;
 		playerStats[players[i]].staysFantasyLand = false;
 		playerStats[players[i]].qualifiedFantasyLand = false;
 	}
