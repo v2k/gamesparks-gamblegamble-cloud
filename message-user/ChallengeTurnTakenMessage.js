@@ -10,6 +10,7 @@ var playerId = Spark.getPlayer().getPlayerId();
 // use the given next player, shuffle the rest?
 var gameState = challenge.getScriptData("gameState"); 
 var playerOrder = challenge.getScriptData("playerOrder");
+var playerStats = challenge.getScriptData("playerStats");
 
 //var isFinalMove = challenge.getScriptData("isFinalMove");
 challenge.setScriptData("turntaken_nextPlayer", nextPlayer);
@@ -18,9 +19,20 @@ Spark.setScriptData("turntaken_nextPlayer", nextPlayer);
 
 if (nextPlayer == playerOrder[gameState.actionIndex])
 {
-	// we're on the correct player
-	// let game continue
-	challenge.setScriptData("turntaken_advanced", 0);
+	// check if the next player is in FL and has already gone; if so, skip him
+	if (playerStats[nextPlayer].inFantasyLand && 
+		playerStats[nextPlayer].cardsPlaced > 0)
+	{
+		// this guy is already done his Fl, skip
+		challenge.consumeTurn(nextPlayer);
+		challenge.setScriptData("turntaken_advanced", 2);
+	}
+	else
+	{
+		// we're on the correct player
+		// let game continue
+		challenge.setScriptData("turntaken_advanced", 0);
+	}
 }
 else
 {
